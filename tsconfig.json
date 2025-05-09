@@ -1,11 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "lib": ["es6"],
-    "strict": true,
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@figma"
-    ]
-  }
+    "rootDir": ".", // Root directory of your source files
+    "outDir": "./dist", // Output directory for compiled files
+    "module": "ESNext", // Use ESNext module system
+    "target": "ESNext", // Target modern JavaScript
+    "lib": ["ESNext", "DOM"], // Include ESNext and DOM libraries
+    "strict": true, // Enable strict type checking
+    "declaration": true, // Generate .d.ts files for TypeScript types
+    "declarationMap": true, // Generate .d.ts.map files for better debugging
+    "emitDeclarationOnly": false, // Emit both .js and .d.ts files
+    "moduleResolution": "Node", // Use Node.js module resolution
+    "esModuleInterop": true, // Enable interoperability between CommonJS and ES modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"], // Specify type definitions
+    "allowSyntheticDefaultImports": true // Allow default imports from modules without default exports
+  },
+  "include": ["./**/*.ts"], // Include all TypeScript files in the project
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and output directory
 }
