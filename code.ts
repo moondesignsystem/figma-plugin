@@ -412,7 +412,7 @@ const processCollection = async ({
         });
         obj.$type = resolvedType === "COLOR" ? "color" : "number";
         if (value.type === "VARIABLE_ALIAS") {
-          const variableById = figma.variables.getVariableById(variable.id);
+          const variableById = figma.variables.getVariableById(value.id);
 
           obj.$value = `{${variableById.name.replace(/\//g, ".")}}`;
           // obj.$value = `{${figma.variables
