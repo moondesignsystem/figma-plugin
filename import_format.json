@@ -1,0 +1,24 @@
+{
+  "collections": [
+    {
+      "name": "myCollection",
+      "modes": [
+        {
+          "name": "mode 1 name",
+          "group": {
+            "variableName": {
+              "type": "string",
+              "value": "string value"
+            },
+            "variableSubGroupName": {
+              "variableName": {
+                "type": "number",
+                "value": 1234
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

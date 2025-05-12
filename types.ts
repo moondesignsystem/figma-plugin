@@ -23,6 +23,37 @@ export type importJSONFileArgs = {
   body: string;
 };
 
+export type ImportJSONFileArgs2 = {
+  body: string;
+};
+
+export type ImportedVariable = {
+  type: VariableDataType;
+  value: VariableValue;
+};
+
+export type ImportedVariableGroup = Record<string, ImportedVariable>;
+
+export type ImportedVariables = Record<
+  string,
+  Partial<ImportedVariable> | ImportedVariableGroup
+>;
+
+export type VariableList = Record<
+  string,
+  Record<string, ImportedVariable | ImportedVariableGroup>
+>;
+
+export type ImportedMode = {
+  name: string;
+  variables: VariableList;
+};
+
+export type ImportedCollection = {
+  name: string;
+  mode: ImportedMode[];
+};
+
 export type VariableMap = Record<string, Record<string, Variable>>;
 
 export type TraverseTokensArgs = {

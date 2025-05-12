@@ -3,17 +3,15 @@ import {
   Aliases,
   CustomFile,
   GeneralObject,
+  ImportedCollection,
   ImportedTokens,
   importJSONFileArgs,
+  ImportJSONFileArgs2,
   SelectedCollection,
   SelectedMode,
   TraverseTokensArgs,
   VariableMap,
 } from "./types";
-
-console.clear();
-
-console.log("Moon DS Variables Plugin");
 
 const pluginCommands = ["import", "export"];
 
@@ -22,11 +20,10 @@ const figmaCommand = figma.command;
 const isValidCommand = pluginCommands.includes(figmaCommand);
 
 if (!isValidCommand) {
-  //   figma.closePlugin("Invalid command");
   figma.closePlugin();
 }
 
-figma.showUI(__uiFiles__["export"], {
+figma.showUI(__uiFiles__[figmaCommand], {
   width: 500,
   height: 500,
   themeColors: true,
@@ -34,20 +31,25 @@ figma.showUI(__uiFiles__["export"], {
 
 figma.ui.onmessage = async (e) => {
   console.log("code received message", e);
-  // if (e.type === "IMPORT") {
-  //   const { selectedCollection, selectedMode, body } = e;
-  //   importJSONFile({ selectedCollection, selectedMode, body });
-  //   getExistingCollectionsAndModes();
-  // } else if (e.type === "EXPORT") {
-  //   exportToJSON();
-  // }
   if (e.type === "IMPORT") {
-    const { selectedCollection, selectedMode, body } = e;
-    importJSONFile({ selectedCollection, selectedMode, body });
-    await getExistingCollectionsAndModes();
+    const { body } = e;
+    importJSONFile2({ body });
+    // await getExistingCollectionsAndModes();
     return;
   }
   await exportToJSON();
+};
+
+const importJSONFile2 = async ({ body }: ImportJSONFileArgs2) => {
+  console.log("IMPORT 2");
+
+  const json = JSON.parse(body);
+  console.log("IMPORT 2 JSON", json);
+  const importedCollections: ImportedCollection[] =
+    json.collections as ImportedCollection[];
+  importedCollections.forEach((collection) => {
+    console.log("IMPORT 2 collection", { collection });
+  });
 };
 
 const getExistingCollectionsAndModes = async () => {
@@ -374,6 +376,7 @@ const exportToJSON = async () => {
     collections,
     length: collections.length,
   });
+  console.log("in here oe first collection", { collection: collections[0] });
 
   const files: CustomFile[] = [];
   for (const collection of collections) {
