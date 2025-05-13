@@ -336,25 +336,14 @@ const processAliases = ({
 
 const exportToJSON = async () => {
   const collections = await figma.variables.getLocalVariableCollectionsAsync();
-  console.log("in here oe exportToJSON", {
-    collections,
-    length: collections.length,
-  });
-  console.log("in here oe first collection", { collection: collections[0] });
+  const exportedCollections: ImportedCollection[] = [];
 
-  const files: ImportedCollection[] = [];
-
-  // const files: CustomFile[] = [];
-  // for (const collection of collections) {
-  //   files.push(...(await processCollection(collection)));
-  // }
   for (const collection of collections) {
-    files.push(await processCollection(collection));
+    exportedCollections.push(await processCollection(collection));
   }
   figma.ui.postMessage({
     type: "EXPORT_RESULT",
-    // data: { collections: files.map((file) => file.body) },
-    data: { collections: files },
+    data: { collections: exportedCollections },
   });
 };
 
@@ -369,7 +358,6 @@ const processCollection = async ({
     name,
     modes: [],
   };
-  // const files: CustomFile[] = [];
 
   modes.forEach((mode) => {
     const file: CustomFile = {
@@ -411,58 +399,6 @@ const processCollection = async ({
   });
   return collection;
 };
-
-// const processCollection = async ({
-//   id,
-//   name,
-//   modes,
-//   variableIds,
-// }: VariableCollection) => {
-//   const files: CustomFile[] = [];
-
-//   modes.forEach((mode) => {
-//     const file: CustomFile = {
-//       body: {
-//         id,
-//         name,
-//         modeId: mode.modeId,
-//         modeName: mode.name,
-//         variables: {},
-//       },
-//     };
-//     variableIds.forEach((variableId) => {
-//       const variable: Variable | null =
-//         figma.variables.getVariableById(variableId);
-
-//       if (!variable) {
-//         return;
-//       }
-
-//       const { name, resolvedType, valuesByMode } = variable;
-//       const value = valuesByMode[mode.modeId];
-
-//       if (value !== undefined && ["COLOR", "FLOAT"].includes(resolvedType)) {
-//         let obj = file.body.variables;
-//         name.split("/").forEach((groupName) => {
-//           obj[groupName] = obj[groupName] || {};
-//           obj = obj[groupName];
-//         });
-//         obj.$id = value.id || variableId;
-//         obj.$type = resolvedType === "COLOR" ? "color" : "number";
-//         if (value.type === "VARIABLE_ALIAS") {
-//           console.log("in here oe variable alias", { variable, value });
-//           const variableById = figma.variables.getVariableById(value.id);
-//           obj.$value = `{${variableById.name.replace(/\//g, ".")}}`;
-//         } else {
-//           obj.$value =
-//             resolvedType === "COLOR" ? rgbToHex(value as RGBA) : value;
-//         }
-//       }
-//     });
-//     files.push(file);
-//   });
-//   return files;
-// };
 
 const rgbToHex = ({ r, g, b, a }: RGBA) => {
   if (a !== 1) {
