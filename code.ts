@@ -23,6 +23,8 @@ if (!isValidCommand) {
   figma.closePlugin();
 }
 
+console.clear();
+
 figma.showUI(__uiFiles__[figmaCommand], {
   width: 500,
   height: 500,
@@ -33,7 +35,7 @@ figma.ui.onmessage = async (e) => {
   console.log("code received message", e);
   if (e.type === "IMPORT") {
     const { body } = e;
-    importJSONFile2({ body });
+    await importJSONFile2({ body });
     // await getExistingCollectionsAndModes();
     return;
   }
@@ -41,15 +43,71 @@ figma.ui.onmessage = async (e) => {
 };
 
 const importJSONFile2 = async ({ body }: ImportJSONFileArgs2) => {
-  console.log("IMPORT 2");
-
   const json = JSON.parse(body);
-  console.log("IMPORT 2 JSON", json);
   const importedCollections: ImportedCollection[] =
     json.collections as ImportedCollection[];
-  importedCollections.forEach((collection) => {
-    console.log("IMPORT 2 collection", { collection });
+
+  await importCollection(importedCollections[0]);
+  // importedCollections.forEach((collection) => {
+  //   importCollection(collection);
+  // });
+};
+
+const importCollection = async (importedCollection: ImportedCollection) => {
+  const collection = await getFigmaVariableCollection2(importedCollection);
+  const existingVariableseMap = await loadExistingVariableMap2();
+  const aliases = {};
+  const tokens = {};
+
+  console.log("in here oe imported collection as figma collection", {
+    existingVariableseMap,
+    collection,
+    modes: collection.modes,
   });
+};
+
+const getFigmaVariableCollection2 = async (
+  importedCollection: ImportedCollection
+) => {
+  const { id } = importedCollection;
+  const existingCollection =
+    await figma.variables.getVariableCollectionByIdAsync(id);
+
+  if (existingCollection) {
+    return updateCollection2(existingCollection);
+  }
+
+  return createNewCollection2(importedCollection);
+};
+
+const updateCollection2 = async (collection: VariableCollection) => {
+  return collection;
+};
+
+const createNewCollection2 = async (importedCollection: ImportedCollection) => {
+  const collection = figma.variables.createVariableCollection(
+    importedCollection.name
+  );
+
+  const defaultModeId = collection.modes[0].modeId;
+
+  importedCollection.modes.forEach(({ name }) => {
+    collection.addMode(name);
+  });
+
+  collection.removeMode(defaultModeId);
+  return collection;
+};
+
+const loadExistingVariableMap2 = async () => {
+  const variables = await figma.variables.getLocalVariablesAsync();
+  const map = {};
+  variables.forEach((variable) => {
+    map[variable.variableCollectionId] =
+      map[variable.variableCollectionId] || {};
+    map[variable.variableCollectionId][variable.name] = variable;
+  });
+  return map;
 };
 
 const getExistingCollectionsAndModes = async () => {
@@ -382,10 +440,14 @@ const exportToJSON = async () => {
   for (const collection of collections) {
     files.push(...(await processCollection(collection)));
   }
-  figma.ui.postMessage({ type: "EXPORT_RESULT", files });
+  figma.ui.postMessage({
+    type: "EXPORT_RESULT",
+    data: { collections: files.map((file) => file.body) },
+  });
 };
 
 const processCollection = async ({
+  id,
   name,
   modes,
   variableIds,
@@ -393,8 +455,13 @@ const processCollection = async ({
   const files: CustomFile[] = [];
   modes.forEach((mode) => {
     const file: CustomFile = {
-      fileName: `${name}.${mode.name}.tokens.json`,
-      body: {},
+      body: {
+        id,
+        name,
+        modeId: mode.modeId,
+        modeName: mode.name,
+        variables: {},
+      },
     };
     variableIds.forEach((variableId) => {
       const variable: Variable | null =
@@ -408,19 +475,17 @@ const processCollection = async ({
       const value = valuesByMode[mode.modeId];
 
       if (value !== undefined && ["COLOR", "FLOAT"].includes(resolvedType)) {
-        let obj = file.body;
+        let obj = file.body.variables;
         name.split("/").forEach((groupName) => {
           obj[groupName] = obj[groupName] || {};
           obj = obj[groupName];
         });
+        obj.$id = value.id || variableId;
         obj.$type = resolvedType === "COLOR" ? "color" : "number";
         if (value.type === "VARIABLE_ALIAS") {
+          console.log("in here oe variable alias", { variable, value });
           const variableById = figma.variables.getVariableById(value.id);
-
           obj.$value = `{${variableById.name.replace(/\//g, ".")}}`;
-          // obj.$value = `{${figma.variables
-          //   .getVariableById(variable.id as string)
-          //   .name.replace(/\//g, ".")}}`;
         } else {
           obj.$value =
             resolvedType === "COLOR" ? rgbToHex(value as RGBA) : value;

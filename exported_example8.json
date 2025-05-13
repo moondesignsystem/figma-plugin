@@ -1,0 +1,2783 @@
+{
+  "collections": [
+    {
+      "id": "VariableCollectionId:1:2",
+      "name": "Dimension",
+      "modeId": "1:0",
+      "modeName": "Default",
+      "variables": {
+        "Space": {
+          "0": {
+            "$id": "VariableID:3378:12139",
+            "$type": "number",
+            "$value": 0
+          },
+          "1": {
+            "$id": "VariableID:3385:4002",
+            "$type": "number",
+            "$value": 1
+          },
+          "2": {
+            "$id": "VariableID:1:3",
+            "$type": "number",
+            "$value": 2
+          },
+          "4": {
+            "$id": "VariableID:1:4",
+            "$type": "number",
+            "$value": 4
+          },
+          "6": {
+            "$id": "VariableID:64:5721",
+            "$type": "number",
+            "$value": 6
+          },
+          "8": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": 8
+          },
+          "10": {
+            "$id": "VariableID:64:5722",
+            "$type": "number",
+            "$value": 10
+          },
+          "12": {
+            "$id": "VariableID:1:6",
+            "$type": "number",
+            "$value": 12
+          },
+          "14": {
+            "$id": "VariableID:3285:1780",
+            "$type": "number",
+            "$value": 14
+          },
+          "16": {
+            "$id": "VariableID:1:7",
+            "$type": "number",
+            "$value": 16
+          },
+          "18": {
+            "$id": "VariableID:3285:1781",
+            "$type": "number",
+            "$value": 18
+          },
+          "20": {
+            "$id": "VariableID:3242:5939",
+            "$type": "number",
+            "$value": 20
+          },
+          "24": {
+            "$id": "VariableID:1:8",
+            "$type": "number",
+            "$value": 24
+          },
+          "28": {
+            "$id": "VariableID:3578:285",
+            "$type": "number",
+            "$value": 28
+          },
+          "32": {
+            "$id": "VariableID:1:9",
+            "$type": "number",
+            "$value": 32
+          },
+          "36": {
+            "$id": "VariableID:3242:5940",
+            "$type": "number",
+            "$value": 36
+          },
+          "40": {
+            "$id": "VariableID:1:10",
+            "$type": "number",
+            "$value": 40
+          },
+          "48": {
+            "$id": "VariableID:1:11",
+            "$type": "number",
+            "$value": 48
+          },
+          "56": {
+            "$id": "VariableID:1:12",
+            "$type": "number",
+            "$value": 56
+          },
+          "64": {
+            "$id": "VariableID:1:13",
+            "$type": "number",
+            "$value": 64
+          },
+          "72": {
+            "$id": "VariableID:1:14",
+            "$type": "number",
+            "$value": 72
+          },
+          "80": {
+            "$id": "VariableID:1:15",
+            "$type": "number",
+            "$value": 80
+          },
+          "88": {
+            "$id": "VariableID:3560:2335",
+            "$type": "number",
+            "$value": 88
+          },
+          "96": {
+            "$id": "VariableID:3560:2336",
+            "$type": "number",
+            "$value": 96
+          },
+          "104": {
+            "$id": "VariableID:3802:1914",
+            "$type": "number",
+            "$value": 104
+          },
+          "112": {
+            "$id": "VariableID:3802:1915",
+            "$type": "number",
+            "$value": 112
+          },
+          "120": {
+            "$id": "VariableID:3802:1916",
+            "$type": "number",
+            "$value": 120
+          },
+          "128": {
+            "$id": "VariableID:3802:1917",
+            "$type": "number",
+            "$value": 128
+          },
+          "136": {
+            "$id": "VariableID:3863:498",
+            "$type": "number",
+            "$value": 136
+          },
+          "144": {
+            "$id": "VariableID:3863:499",
+            "$type": "number",
+            "$value": 144
+          },
+          "152": {
+            "$id": "VariableID:3863:500",
+            "$type": "number",
+            "$value": 152
+          },
+          "160": {
+            "$id": "VariableID:3863:501",
+            "$type": "number",
+            "$value": 160
+          },
+          "neg12": {
+            "$id": "VariableID:4552:561",
+            "$type": "number",
+            "$value": -12
+          },
+          "neg4": {
+            "$id": "VariableID:4546:2665",
+            "$type": "number",
+            "$value": -4
+          },
+          "neg2": {
+            "$id": "VariableID:4552:560",
+            "$type": "number",
+            "$value": -2
+          }
+        },
+        "Rounded": {
+          "0": {
+            "$id": "VariableID:3468:846",
+            "$type": "number",
+            "$value": 0
+          },
+          "2": {
+            "$id": "VariableID:3468:847",
+            "$type": "number",
+            "$value": 2
+          },
+          "4": {
+            "$id": "VariableID:3468:848",
+            "$type": "number",
+            "$value": 4
+          },
+          "6": {
+            "$id": "VariableID:3468:849",
+            "$type": "number",
+            "$value": 6
+          },
+          "8": {
+            "$id": "VariableID:3468:850",
+            "$type": "number",
+            "$value": 8
+          },
+          "12": {
+            "$id": "VariableID:3468:851",
+            "$type": "number",
+            "$value": 12
+          },
+          "16": {
+            "$id": "VariableID:3468:852",
+            "$type": "number",
+            "$value": 16
+          },
+          "20": {
+            "$id": "VariableID:4511:3113",
+            "$type": "number",
+            "$value": 20
+          },
+          "24": {
+            "$id": "VariableID:3468:853",
+            "$type": "number",
+            "$value": 24
+          },
+          "32": {
+            "$id": "VariableID:3541:1268",
+            "$type": "number",
+            "$value": 32
+          },
+          "Full": {
+            "$id": "VariableID:3468:855",
+            "$type": "number",
+            "$value": 9999
+          }
+        },
+        "Border": {
+          "0": {
+            "$id": "VariableID:3542:1269",
+            "$type": "number",
+            "$value": 0
+          },
+          "1": {
+            "$id": "VariableID:12:1293",
+            "$type": "number",
+            "$value": 1
+          },
+          "2": {
+            "$id": "VariableID:12:1294",
+            "$type": "number",
+            "$value": 2
+          },
+          "4": {
+            "$id": "VariableID:484:1671",
+            "$type": "number",
+            "$value": 4
+          },
+          "None": {
+            "$id": "VariableID:3542:1269",
+            "$type": "number",
+            "$value": "{Border.0}"
+          },
+          "Default": {
+            "$id": "VariableID:12:1293",
+            "$type": "number",
+            "$value": "{Border.1}"
+          },
+          "Interactive": {
+            "$id": "VariableID:12:1294",
+            "$type": "number",
+            "$value": "{Border.2}"
+          }
+        },
+        "Text": {
+          "6": {
+            "$id": "VariableID:5349:278",
+            "$type": "number",
+            "$value": 6
+          },
+          "8": {
+            "$id": "VariableID:5349:279",
+            "$type": "number",
+            "$value": 8
+          },
+          "10": {
+            "$id": "VariableID:5349:280",
+            "$type": "number",
+            "$value": 10
+          },
+          "12": {
+            "$id": "VariableID:5349:281",
+            "$type": "number",
+            "$value": 12
+          },
+          "14": {
+            "$id": "VariableID:5349:282",
+            "$type": "number",
+            "$value": 14
+          },
+          "16": {
+            "$id": "VariableID:5349:283",
+            "$type": "number",
+            "$value": 16
+          },
+          "18": {
+            "$id": "VariableID:5349:284",
+            "$type": "number",
+            "$value": 18
+          },
+          "20": {
+            "$id": "VariableID:5349:285",
+            "$type": "number",
+            "$value": 20
+          },
+          "24": {
+            "$id": "VariableID:5349:286",
+            "$type": "number",
+            "$value": 24
+          },
+          "32": {
+            "$id": "VariableID:5349:287",
+            "$type": "number",
+            "$value": 32
+          },
+          "36": {
+            "$id": "VariableID:5349:288",
+            "$type": "number",
+            "$value": 36
+          },
+          "40": {
+            "$id": "VariableID:5388:261",
+            "$type": "number",
+            "$value": 40
+          },
+          "48": {
+            "$id": "VariableID:5349:289",
+            "$type": "number",
+            "$value": 48
+          },
+          "72": {
+            "$id": "VariableID:5349:290",
+            "$type": "number",
+            "$value": 72
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:1:23",
+      "name": "Semantic",
+      "modeId": "1:2",
+      "modeName": "Default",
+      "variables": {
+        "Background": {
+          "Primary": {
+            "$id": "VariableID:280:2392",
+            "$type": "color",
+            "$value": "{Slate.1}"
+          },
+          "Secondary": {
+            "$id": "VariableID:280:2393",
+            "$type": "color",
+            "$value": "{Slate.2}"
+          },
+          "Tertiary": {
+            "$id": "VariableID:280:2394",
+            "$type": "color",
+            "$value": "{Slate.3}"
+          },
+          "Inverse": {
+            "$id": "VariableID:459:15694",
+            "$type": "color",
+            "$value": "{Slate.12}"
+          },
+          "Neutral": {
+            "$id": "VariableID:280:2403",
+            "$type": "color",
+            "$value": "{Slate.9}"
+          },
+          "Neutral Subtle": {
+            "$id": "VariableID:280:2394",
+            "$type": "color",
+            "$value": "{Slate.3}"
+          },
+          "Brand": {
+            "$id": "VariableID:3304:22803",
+            "$type": "color",
+            "$value": "{Iris.9}"
+          },
+          "Brand Subtle": {
+            "$id": "VariableID:3304:22797",
+            "$type": "color",
+            "$value": "{Iris.3}"
+          },
+          "Positive": {
+            "$id": "VariableID:280:2587",
+            "$type": "color",
+            "$value": "{Green.9}"
+          },
+          "Positive Subtle": {
+            "$id": "VariableID:280:2581",
+            "$type": "color",
+            "$value": "{Green.3}"
+          },
+          "Caution": {
+            "$id": "VariableID:529:4432",
+            "$type": "color",
+            "$value": "{Orange.9}"
+          },
+          "Caution Subtle": {
+            "$id": "VariableID:529:4426",
+            "$type": "color",
+            "$value": "{Orange.3}"
+          },
+          "Negative": {
+            "$id": "VariableID:280:2363",
+            "$type": "color",
+            "$value": "{Red.9}"
+          },
+          "Negative Subtle": {
+            "$id": "VariableID:280:2354",
+            "$type": "color",
+            "$value": "{Red.3}"
+          },
+          "Info": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Info Subtle": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "{Indigo.3}"
+          },
+          "Discovery": {
+            "$id": "VariableID:3849:244",
+            "$type": "color",
+            "$value": "{Plum.9}"
+          },
+          "Discovery Subtle": {
+            "$id": "VariableID:3849:238",
+            "$type": "color",
+            "$value": "{Plum.3}"
+          },
+          "Active": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Active Subtle": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "{Indigo.3}"
+          },
+          "Hover": {
+            "$id": "VariableID:922:4407",
+            "$type": "color",
+            "$value": "{Slate.Alpha.8}"
+          },
+          "Backdrop": {
+            "$id": "VariableID:3981:524",
+            "$type": "color",
+            "$value": "{Slate.Alpha.56}"
+          },
+          "Transparent": {
+            "$id": "VariableID:4228:543",
+            "$type": "color",
+            "$value": "{Slate.Alpha.0}"
+          },
+          "Force Light": {
+            "$id": "VariableID:3304:22813",
+            "$type": "color",
+            "$value": "{Slate.Force.Light}"
+          },
+          "Force Dark": {
+            "$id": "VariableID:3510:4224",
+            "$type": "color",
+            "$value": "{Slate.Force.Dark}"
+          }
+        },
+        "Text": {
+          "Primary": {
+            "$id": "VariableID:459:15694",
+            "$type": "color",
+            "$value": "{Slate.12}"
+          },
+          "Secondary": {
+            "$id": "VariableID:459:15693",
+            "$type": "color",
+            "$value": "{Slate.11}"
+          },
+          "Inverse": {
+            "$id": "VariableID:280:2392",
+            "$type": "color",
+            "$value": "{Slate.1}"
+          },
+          "Neutral": {
+            "$id": "VariableID:280:2403",
+            "$type": "color",
+            "$value": "{Slate.9}"
+          },
+          "Neutral Subtle": {
+            "$id": "VariableID:280:2394",
+            "$type": "color",
+            "$value": "{Slate.3}"
+          },
+          "Brand": {
+            "$id": "VariableID:3304:22803",
+            "$type": "color",
+            "$value": "{Iris.9}"
+          },
+          "Brand Subtle": {
+            "$id": "VariableID:3304:22797",
+            "$type": "color",
+            "$value": "{Iris.3}"
+          },
+          "Positive": {
+            "$id": "VariableID:280:2587",
+            "$type": "color",
+            "$value": "{Green.9}"
+          },
+          "Positive Subtle": {
+            "$id": "VariableID:280:2581",
+            "$type": "color",
+            "$value": "{Green.3}"
+          },
+          "Caution": {
+            "$id": "VariableID:529:4432",
+            "$type": "color",
+            "$value": "{Orange.9}"
+          },
+          "Caution Subtle": {
+            "$id": "VariableID:529:4426",
+            "$type": "color",
+            "$value": "{Orange.3}"
+          },
+          "Negative": {
+            "$id": "VariableID:280:2363",
+            "$type": "color",
+            "$value": "{Red.9}"
+          },
+          "Negative Subtle": {
+            "$id": "VariableID:280:2354",
+            "$type": "color",
+            "$value": "{Red.3}"
+          },
+          "Info": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Info Subtle": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "{Indigo.3}"
+          },
+          "Discovery": {
+            "$id": "VariableID:3849:244",
+            "$type": "color",
+            "$value": "{Plum.9}"
+          },
+          "Discovery Subtle": {
+            "$id": "VariableID:3849:238",
+            "$type": "color",
+            "$value": "{Plum.3}"
+          },
+          "Active": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Active Subtle": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "{Indigo.3}"
+          },
+          "Link": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Force Light": {
+            "$id": "VariableID:3304:22813",
+            "$type": "color",
+            "$value": "{Slate.Force.Light}"
+          },
+          "Force Dark": {
+            "$id": "VariableID:3510:4224",
+            "$type": "color",
+            "$value": "{Slate.Force.Dark}"
+          }
+        },
+        "Icon": {
+          "Primary": {
+            "$id": "VariableID:459:15694",
+            "$type": "color",
+            "$value": "{Slate.12}"
+          },
+          "Secondary": {
+            "$id": "VariableID:459:15693",
+            "$type": "color",
+            "$value": "{Slate.11}"
+          },
+          "Inverse": {
+            "$id": "VariableID:280:2392",
+            "$type": "color",
+            "$value": "{Slate.1}"
+          },
+          "Neutral": {
+            "$id": "VariableID:280:2403",
+            "$type": "color",
+            "$value": "{Slate.9}"
+          },
+          "Neutral Subtle": {
+            "$id": "VariableID:280:2394",
+            "$type": "color",
+            "$value": "{Slate.3}"
+          },
+          "Brand": {
+            "$id": "VariableID:3304:22803",
+            "$type": "color",
+            "$value": "{Iris.9}"
+          },
+          "Brand Subtle": {
+            "$id": "VariableID:3304:22797",
+            "$type": "color",
+            "$value": "{Iris.3}"
+          },
+          "Positive": {
+            "$id": "VariableID:280:2587",
+            "$type": "color",
+            "$value": "{Green.9}"
+          },
+          "Positive Subtle": {
+            "$id": "VariableID:280:2581",
+            "$type": "color",
+            "$value": "{Green.3}"
+          },
+          "Caution": {
+            "$id": "VariableID:529:4432",
+            "$type": "color",
+            "$value": "{Orange.9}"
+          },
+          "Caution Subtle": {
+            "$id": "VariableID:529:4426",
+            "$type": "color",
+            "$value": "{Orange.3}"
+          },
+          "Negative": {
+            "$id": "VariableID:280:2363",
+            "$type": "color",
+            "$value": "{Red.9}"
+          },
+          "Negative Subtle": {
+            "$id": "VariableID:280:2354",
+            "$type": "color",
+            "$value": "{Red.3}"
+          },
+          "Info": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Info Subtle": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "{Indigo.3}"
+          },
+          "Discovery": {
+            "$id": "VariableID:3849:244",
+            "$type": "color",
+            "$value": "{Plum.9}"
+          },
+          "Discovery Subtle": {
+            "$id": "VariableID:3849:238",
+            "$type": "color",
+            "$value": "{Plum.3}"
+          },
+          "Active": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Active Subtle": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "{Indigo.3}"
+          },
+          "Force Light": {
+            "$id": "VariableID:3304:22813",
+            "$type": "color",
+            "$value": "{Slate.Force.Light}"
+          },
+          "Force Dark": {
+            "$id": "VariableID:3510:4224",
+            "$type": "color",
+            "$value": "{Slate.Force.Dark}"
+          }
+        },
+        "Border": {
+          "Primary": {
+            "$id": "VariableID:280:2400",
+            "$type": "color",
+            "$value": "{Slate.7}"
+          },
+          "Secondary": {
+            "$id": "VariableID:280:2398",
+            "$type": "color",
+            "$value": "{Slate.6}"
+          },
+          "Inverse": {
+            "$id": "VariableID:459:15694",
+            "$type": "color",
+            "$value": "{Slate.12}"
+          },
+          "Neutral": {
+            "$id": "VariableID:280:2403",
+            "$type": "color",
+            "$value": "{Slate.9}"
+          },
+          "Brand": {
+            "$id": "VariableID:3304:22803",
+            "$type": "color",
+            "$value": "{Iris.9}"
+          },
+          "Positive": {
+            "$id": "VariableID:280:2587",
+            "$type": "color",
+            "$value": "{Green.9}"
+          },
+          "Caution": {
+            "$id": "VariableID:529:4432",
+            "$type": "color",
+            "$value": "{Orange.9}"
+          },
+          "Negative": {
+            "$id": "VariableID:280:2363",
+            "$type": "color",
+            "$value": "{Red.9}"
+          },
+          "Info": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Discovery": {
+            "$id": "VariableID:3849:244",
+            "$type": "color",
+            "$value": "{Plum.9}"
+          },
+          "Active": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "{Indigo.9}"
+          },
+          "Force Light": {
+            "$id": "VariableID:3304:22813",
+            "$type": "color",
+            "$value": "{Slate.Force.Light}"
+          },
+          "Force Dark": {
+            "$id": "VariableID:3510:4224",
+            "$type": "color",
+            "$value": "{Slate.Force.Dark}"
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:141:45830",
+      "name": "Text",
+      "modeId": "141:1",
+      "modeName": "Default",
+      "variables": {
+        "Body": {
+          "100": {
+            "Font-size": {
+              "$id": "VariableID:5349:280",
+              "$type": "number",
+              "$value": "{Text.10}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:6",
+              "$type": "number",
+              "$value": "{Space.12}"
+            }
+          },
+          "200": {
+            "Font-size": {
+              "$id": "VariableID:5349:281",
+              "$type": "number",
+              "$value": "{Text.12}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:7",
+              "$type": "number",
+              "$value": "{Space.16}"
+            }
+          },
+          "300": {
+            "Font-size": {
+              "$id": "VariableID:5349:282",
+              "$type": "number",
+              "$value": "{Text.14}"
+            },
+            "Line-height": {
+              "$id": "VariableID:3242:5939",
+              "$type": "number",
+              "$value": "{Space.20}"
+            }
+          },
+          "400": {
+            "Font-size": {
+              "$id": "VariableID:5349:283",
+              "$type": "number",
+              "$value": "{Text.16}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:8",
+              "$type": "number",
+              "$value": "{Space.24}"
+            }
+          },
+          "500": {
+            "Font-size": {
+              "$id": "VariableID:5349:284",
+              "$type": "number",
+              "$value": "{Text.18}"
+            },
+            "Line-height": {
+              "$id": "VariableID:3578:285",
+              "$type": "number",
+              "$value": "{Space.28}"
+            }
+          }
+        },
+        "Heading": {
+          "100": {
+            "Font-size": {
+              "$id": "VariableID:5349:284",
+              "$type": "number",
+              "$value": "{Text.18}"
+            },
+            "Line-height": {
+              "$id": "VariableID:3578:285",
+              "$type": "number",
+              "$value": "{Space.28}"
+            }
+          },
+          "200": {
+            "Font-size": {
+              "$id": "VariableID:5349:286",
+              "$type": "number",
+              "$value": "{Text.24}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:9",
+              "$type": "number",
+              "$value": "{Space.32}"
+            }
+          },
+          "300": {
+            "Font-size": {
+              "$id": "VariableID:5349:288",
+              "$type": "number",
+              "$value": "{Text.36}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:10",
+              "$type": "number",
+              "$value": "{Space.40}"
+            }
+          },
+          "400": {
+            "Font-size": {
+              "$id": "VariableID:5349:289",
+              "$type": "number",
+              "$value": "{Text.48}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:12",
+              "$type": "number",
+              "$value": "{Space.56}"
+            }
+          },
+          "500": {
+            "Font-size": {
+              "$id": "VariableID:5349:290",
+              "$type": "number",
+              "$value": "{Text.72}"
+            },
+            "Line-height": {
+              "$id": "VariableID:1:15",
+              "$type": "number",
+              "$value": "{Space.80}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:273:4860",
+      "name": "Color",
+      "modeId": "273:0",
+      "modeName": "Light",
+      "variables": {
+        "Slate": {
+          "1": {
+            "$id": "VariableID:280:2392",
+            "$type": "color",
+            "$value": "#fcfcfd"
+          },
+          "2": {
+            "$id": "VariableID:280:2393",
+            "$type": "color",
+            "$value": "#f9f9fb"
+          },
+          "3": {
+            "$id": "VariableID:280:2394",
+            "$type": "color",
+            "$value": "#f0f0f3"
+          },
+          "4": {
+            "$id": "VariableID:280:2395",
+            "$type": "color",
+            "$value": "#e8e8ec"
+          },
+          "5": {
+            "$id": "VariableID:280:2397",
+            "$type": "color",
+            "$value": "#e0e1e6"
+          },
+          "6": {
+            "$id": "VariableID:280:2398",
+            "$type": "color",
+            "$value": "#d9d9e0"
+          },
+          "7": {
+            "$id": "VariableID:280:2400",
+            "$type": "color",
+            "$value": "#cdced6"
+          },
+          "8": {
+            "$id": "VariableID:280:2401",
+            "$type": "color",
+            "$value": "#b9bbc6"
+          },
+          "9": {
+            "$id": "VariableID:280:2403",
+            "$type": "color",
+            "$value": "#8b8d98"
+          },
+          "10": {
+            "$id": "VariableID:459:15692",
+            "$type": "color",
+            "$value": "#80838d"
+          },
+          "11": {
+            "$id": "VariableID:459:15693",
+            "$type": "color",
+            "$value": "#60646c"
+          },
+          "12": {
+            "$id": "VariableID:459:15694",
+            "$type": "color",
+            "$value": "#1c2024"
+          },
+          "Alpha": {
+            "0": {
+              "$id": "VariableID:4228:543",
+              "$type": "color",
+              "$value": "rgba(252, 252, 253, 0.0010)"
+            },
+            "8": {
+              "$id": "VariableID:922:4407",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.0800)"
+            },
+            "56": {
+              "$id": "VariableID:3981:524",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.5600)"
+            }
+          },
+          "Shadow": {
+            "0": {
+              "$id": "VariableID:4127:584",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.0000)"
+            },
+            "100": {
+              "$id": "VariableID:4094:518",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.0400)"
+            },
+            "200": {
+              "$id": "VariableID:4094:516",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.0600)"
+            },
+            "300": {
+              "$id": "VariableID:4094:519",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.0800)"
+            },
+            "400": {
+              "$id": "VariableID:4094:517",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.1000)"
+            },
+            "500": {
+              "$id": "VariableID:4094:520",
+              "$type": "color",
+              "$value": "rgba(28, 32, 36, 0.1600)"
+            }
+          },
+          "Force": {
+            "Light": {
+              "$id": "VariableID:3304:22813",
+              "$type": "color",
+              "$value": "#fcfcfd"
+            },
+            "Dark": {
+              "$id": "VariableID:3510:4224",
+              "$type": "color",
+              "$value": "#1c2024"
+            }
+          }
+        },
+        "Iris": {
+          "1": {
+            "$id": "VariableID:3304:22795",
+            "$type": "color",
+            "$value": "#fdfdff"
+          },
+          "2": {
+            "$id": "VariableID:3304:22796",
+            "$type": "color",
+            "$value": "#f8f8ff"
+          },
+          "3": {
+            "$id": "VariableID:3304:22797",
+            "$type": "color",
+            "$value": "#f0f1fe"
+          },
+          "4": {
+            "$id": "VariableID:3304:22798",
+            "$type": "color",
+            "$value": "#e6e7ff"
+          },
+          "5": {
+            "$id": "VariableID:3304:22799",
+            "$type": "color",
+            "$value": "#dadcff"
+          },
+          "6": {
+            "$id": "VariableID:3304:22800",
+            "$type": "color",
+            "$value": "#cbcdff"
+          },
+          "7": {
+            "$id": "VariableID:3304:22801",
+            "$type": "color",
+            "$value": "#b8baf8"
+          },
+          "8": {
+            "$id": "VariableID:3304:22802",
+            "$type": "color",
+            "$value": "#9b9ef0"
+          },
+          "9": {
+            "$id": "VariableID:3304:22803",
+            "$type": "color",
+            "$value": "#5b5bd6"
+          },
+          "10": {
+            "$id": "VariableID:3304:22804",
+            "$type": "color",
+            "$value": "#5151cd"
+          },
+          "11": {
+            "$id": "VariableID:3304:22805",
+            "$type": "color",
+            "$value": "#5753c6"
+          },
+          "12": {
+            "$id": "VariableID:3304:22806",
+            "$type": "color",
+            "$value": "#272962"
+          }
+        },
+        "Green": {
+          "1": {
+            "$id": "VariableID:280:2579",
+            "$type": "color",
+            "$value": "#fbfefc"
+          },
+          "2": {
+            "$id": "VariableID:280:2580",
+            "$type": "color",
+            "$value": "#f4fbf6"
+          },
+          "3": {
+            "$id": "VariableID:280:2581",
+            "$type": "color",
+            "$value": "#e6f6eb"
+          },
+          "4": {
+            "$id": "VariableID:280:2582",
+            "$type": "color",
+            "$value": "#d6f1df"
+          },
+          "5": {
+            "$id": "VariableID:280:2583",
+            "$type": "color",
+            "$value": "#c4e8d1"
+          },
+          "6": {
+            "$id": "VariableID:280:2584",
+            "$type": "color",
+            "$value": "#adddc0"
+          },
+          "7": {
+            "$id": "VariableID:280:2585",
+            "$type": "color",
+            "$value": "#8eceaa"
+          },
+          "8": {
+            "$id": "VariableID:280:2586",
+            "$type": "color",
+            "$value": "#5bb98b"
+          },
+          "9": {
+            "$id": "VariableID:280:2587",
+            "$type": "color",
+            "$value": "#30a46c"
+          },
+          "10": {
+            "$id": "VariableID:280:2588",
+            "$type": "color",
+            "$value": "#2b9a66"
+          },
+          "11": {
+            "$id": "VariableID:280:2589",
+            "$type": "color",
+            "$value": "#218358"
+          },
+          "12": {
+            "$id": "VariableID:280:2590",
+            "$type": "color",
+            "$value": "#193b2d"
+          }
+        },
+        "Orange": {
+          "1": {
+            "$id": "VariableID:529:4424",
+            "$type": "color",
+            "$value": "#fefcfb"
+          },
+          "2": {
+            "$id": "VariableID:529:4425",
+            "$type": "color",
+            "$value": "#fff7ed"
+          },
+          "3": {
+            "$id": "VariableID:529:4426",
+            "$type": "color",
+            "$value": "#ffefd6"
+          },
+          "4": {
+            "$id": "VariableID:529:4427",
+            "$type": "color",
+            "$value": "#ffdfb5"
+          },
+          "5": {
+            "$id": "VariableID:529:4428",
+            "$type": "color",
+            "$value": "#ffd19a"
+          },
+          "6": {
+            "$id": "VariableID:529:4429",
+            "$type": "color",
+            "$value": "#ffc182"
+          },
+          "7": {
+            "$id": "VariableID:529:4430",
+            "$type": "color",
+            "$value": "#f5ae73"
+          },
+          "8": {
+            "$id": "VariableID:529:4431",
+            "$type": "color",
+            "$value": "#ec9455"
+          },
+          "9": {
+            "$id": "VariableID:529:4432",
+            "$type": "color",
+            "$value": "#f76b15"
+          },
+          "10": {
+            "$id": "VariableID:529:4433",
+            "$type": "color",
+            "$value": "#ef5f00"
+          },
+          "11": {
+            "$id": "VariableID:529:4434",
+            "$type": "color",
+            "$value": "#cc4e00"
+          },
+          "12": {
+            "$id": "VariableID:529:4435",
+            "$type": "color",
+            "$value": "#582d1d"
+          }
+        },
+        "Red": {
+          "1": {
+            "$id": "VariableID:280:2352",
+            "$type": "color",
+            "$value": "#fffcfc"
+          },
+          "2": {
+            "$id": "VariableID:280:2353",
+            "$type": "color",
+            "$value": "#fff7f7"
+          },
+          "3": {
+            "$id": "VariableID:280:2354",
+            "$type": "color",
+            "$value": "#feebec"
+          },
+          "4": {
+            "$id": "VariableID:280:2355",
+            "$type": "color",
+            "$value": "#ffdbdc"
+          },
+          "5": {
+            "$id": "VariableID:280:2357",
+            "$type": "color",
+            "$value": "#ffcdce"
+          },
+          "6": {
+            "$id": "VariableID:280:2358",
+            "$type": "color",
+            "$value": "#fdbdbe"
+          },
+          "7": {
+            "$id": "VariableID:280:2360",
+            "$type": "color",
+            "$value": "#f4a9aa"
+          },
+          "8": {
+            "$id": "VariableID:280:2361",
+            "$type": "color",
+            "$value": "#eb8e90"
+          },
+          "9": {
+            "$id": "VariableID:280:2363",
+            "$type": "color",
+            "$value": "#e5484d"
+          },
+          "10": {
+            "$id": "VariableID:280:2364",
+            "$type": "color",
+            "$value": "#dc3e42"
+          },
+          "11": {
+            "$id": "VariableID:280:2365",
+            "$type": "color",
+            "$value": "#ce2c31"
+          },
+          "12": {
+            "$id": "VariableID:280:2367",
+            "$type": "color",
+            "$value": "#641723"
+          }
+        },
+        "Indigo": {
+          "1": {
+            "$id": "VariableID:280:2640",
+            "$type": "color",
+            "$value": "#fdfdfe"
+          },
+          "2": {
+            "$id": "VariableID:280:2641",
+            "$type": "color",
+            "$value": "#f7f9ff"
+          },
+          "3": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "#edf2fe"
+          },
+          "4": {
+            "$id": "VariableID:280:2643",
+            "$type": "color",
+            "$value": "#e1e9ff"
+          },
+          "5": {
+            "$id": "VariableID:280:2644",
+            "$type": "color",
+            "$value": "#d2deff"
+          },
+          "6": {
+            "$id": "VariableID:280:2646",
+            "$type": "color",
+            "$value": "#c1d0ff"
+          },
+          "7": {
+            "$id": "VariableID:280:2647",
+            "$type": "color",
+            "$value": "#abbdf9"
+          },
+          "8": {
+            "$id": "VariableID:280:2649",
+            "$type": "color",
+            "$value": "#8da4ef"
+          },
+          "9": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "#3e63dd"
+          },
+          "10": {
+            "$id": "VariableID:280:2652",
+            "$type": "color",
+            "$value": "#3358d4"
+          },
+          "11": {
+            "$id": "VariableID:280:2653",
+            "$type": "color",
+            "$value": "#0d74ce"
+          },
+          "12": {
+            "$id": "VariableID:280:2654",
+            "$type": "color",
+            "$value": "#1f2d5c"
+          },
+          "Alpha": {
+            "24": {
+              "$id": "VariableID:5178:2",
+              "$type": "color",
+              "$value": "rgba(62, 99, 221, 0.2400)"
+            }
+          }
+        },
+        "Plum": {
+          "1": {
+            "$id": "VariableID:3849:236",
+            "$type": "color",
+            "$value": "#fefcff"
+          },
+          "2": {
+            "$id": "VariableID:3849:237",
+            "$type": "color",
+            "$value": "#fdf7fd"
+          },
+          "3": {
+            "$id": "VariableID:3849:238",
+            "$type": "color",
+            "$value": "#fbebfb"
+          },
+          "4": {
+            "$id": "VariableID:3849:239",
+            "$type": "color",
+            "$value": "#f7def8"
+          },
+          "5": {
+            "$id": "VariableID:3849:240",
+            "$type": "color",
+            "$value": "#f2d1f3"
+          },
+          "6": {
+            "$id": "VariableID:3849:241",
+            "$type": "color",
+            "$value": "#e9c2ec"
+          },
+          "7": {
+            "$id": "VariableID:3849:242",
+            "$type": "color",
+            "$value": "#deade3"
+          },
+          "8": {
+            "$id": "VariableID:3849:243",
+            "$type": "color",
+            "$value": "#cf91d8"
+          },
+          "9": {
+            "$id": "VariableID:3849:244",
+            "$type": "color",
+            "$value": "#ab4aba"
+          },
+          "10": {
+            "$id": "VariableID:3849:245",
+            "$type": "color",
+            "$value": "#a144af"
+          },
+          "11": {
+            "$id": "VariableID:3849:246",
+            "$type": "color",
+            "$value": "#953ea3"
+          },
+          "12": {
+            "$id": "VariableID:3849:247",
+            "$type": "color",
+            "$value": "#53195d"
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:273:4860",
+      "name": "Color",
+      "modeId": "473:0",
+      "modeName": "Dark",
+      "variables": {
+        "Slate": {
+          "1": {
+            "$id": "VariableID:280:2392",
+            "$type": "color",
+            "$value": "#111113"
+          },
+          "2": {
+            "$id": "VariableID:280:2393",
+            "$type": "color",
+            "$value": "#18191b"
+          },
+          "3": {
+            "$id": "VariableID:280:2394",
+            "$type": "color",
+            "$value": "#212225"
+          },
+          "4": {
+            "$id": "VariableID:280:2395",
+            "$type": "color",
+            "$value": "#272a2d"
+          },
+          "5": {
+            "$id": "VariableID:280:2397",
+            "$type": "color",
+            "$value": "#2e3135"
+          },
+          "6": {
+            "$id": "VariableID:280:2398",
+            "$type": "color",
+            "$value": "#363a3f"
+          },
+          "7": {
+            "$id": "VariableID:280:2400",
+            "$type": "color",
+            "$value": "#43484e"
+          },
+          "8": {
+            "$id": "VariableID:280:2401",
+            "$type": "color",
+            "$value": "#5a6169"
+          },
+          "9": {
+            "$id": "VariableID:280:2403",
+            "$type": "color",
+            "$value": "#696e77"
+          },
+          "10": {
+            "$id": "VariableID:459:15692",
+            "$type": "color",
+            "$value": "#777b84"
+          },
+          "11": {
+            "$id": "VariableID:459:15693",
+            "$type": "color",
+            "$value": "#b0b4ba"
+          },
+          "12": {
+            "$id": "VariableID:459:15694",
+            "$type": "color",
+            "$value": "#edeef0"
+          },
+          "Alpha": {
+            "0": {
+              "$id": "VariableID:4228:543",
+              "$type": "color",
+              "$value": "rgba(17, 17, 19, 0.0010)"
+            },
+            "8": {
+              "$id": "VariableID:922:4407",
+              "$type": "color",
+              "$value": "rgba(237, 238, 240, 0.0800)"
+            },
+            "56": {
+              "$id": "VariableID:3981:524",
+              "$type": "color",
+              "$value": "rgba(237, 238, 240, 0.1600)"
+            }
+          },
+          "Shadow": {
+            "0": {
+              "$id": "VariableID:4127:584",
+              "$type": "color",
+              "$value": "rgba(0, 0, 0, 0.0000)"
+            },
+            "100": {
+              "$id": "VariableID:4094:518",
+              "$type": "color",
+              "$value": "rgba(0, 0, 0, 0.1600)"
+            },
+            "200": {
+              "$id": "VariableID:4094:516",
+              "$type": "color",
+              "$value": "rgba(0, 0, 0, 0.2400)"
+            },
+            "300": {
+              "$id": "VariableID:4094:519",
+              "$type": "color",
+              "$value": "rgba(0, 0, 0, 0.3200)"
+            },
+            "400": {
+              "$id": "VariableID:4094:517",
+              "$type": "color",
+              "$value": "rgba(0, 0, 0, 0.4000)"
+            },
+            "500": {
+              "$id": "VariableID:4094:520",
+              "$type": "color",
+              "$value": "rgba(0, 0, 0, 0.6400)"
+            }
+          },
+          "Force": {
+            "Light": {
+              "$id": "VariableID:3304:22813",
+              "$type": "color",
+              "$value": "#edeef0"
+            },
+            "Dark": {
+              "$id": "VariableID:3510:4224",
+              "$type": "color",
+              "$value": "#111113"
+            }
+          }
+        },
+        "Iris": {
+          "1": {
+            "$id": "VariableID:3304:22795",
+            "$type": "color",
+            "$value": "#13131e"
+          },
+          "2": {
+            "$id": "VariableID:3304:22796",
+            "$type": "color",
+            "$value": "#171625"
+          },
+          "3": {
+            "$id": "VariableID:3304:22797",
+            "$type": "color",
+            "$value": "#202248"
+          },
+          "4": {
+            "$id": "VariableID:3304:22798",
+            "$type": "color",
+            "$value": "#262a65"
+          },
+          "5": {
+            "$id": "VariableID:3304:22799",
+            "$type": "color",
+            "$value": "#303374"
+          },
+          "6": {
+            "$id": "VariableID:3304:22800",
+            "$type": "color",
+            "$value": "#3d3e82"
+          },
+          "7": {
+            "$id": "VariableID:3304:22801",
+            "$type": "color",
+            "$value": "#4a4a95"
+          },
+          "8": {
+            "$id": "VariableID:3304:22802",
+            "$type": "color",
+            "$value": "#5958b1"
+          },
+          "9": {
+            "$id": "VariableID:3304:22803",
+            "$type": "color",
+            "$value": "#5b5bd6"
+          },
+          "10": {
+            "$id": "VariableID:3304:22804",
+            "$type": "color",
+            "$value": "#6e6ade"
+          },
+          "11": {
+            "$id": "VariableID:3304:22805",
+            "$type": "color",
+            "$value": "#b1a9ff"
+          },
+          "12": {
+            "$id": "VariableID:3304:22806",
+            "$type": "color",
+            "$value": "#e0dffe"
+          }
+        },
+        "Green": {
+          "1": {
+            "$id": "VariableID:280:2579",
+            "$type": "color",
+            "$value": "#0e1512"
+          },
+          "2": {
+            "$id": "VariableID:280:2580",
+            "$type": "color",
+            "$value": "#121b17"
+          },
+          "3": {
+            "$id": "VariableID:280:2581",
+            "$type": "color",
+            "$value": "#132d21"
+          },
+          "4": {
+            "$id": "VariableID:280:2582",
+            "$type": "color",
+            "$value": "#113b29"
+          },
+          "5": {
+            "$id": "VariableID:280:2583",
+            "$type": "color",
+            "$value": "#174933"
+          },
+          "6": {
+            "$id": "VariableID:280:2584",
+            "$type": "color",
+            "$value": "#20573e"
+          },
+          "7": {
+            "$id": "VariableID:280:2585",
+            "$type": "color",
+            "$value": "#28684a"
+          },
+          "8": {
+            "$id": "VariableID:280:2586",
+            "$type": "color",
+            "$value": "#2f7c57"
+          },
+          "9": {
+            "$id": "VariableID:280:2587",
+            "$type": "color",
+            "$value": "#30a46c"
+          },
+          "10": {
+            "$id": "VariableID:280:2588",
+            "$type": "color",
+            "$value": "#33b074"
+          },
+          "11": {
+            "$id": "VariableID:280:2589",
+            "$type": "color",
+            "$value": "#3dd68c"
+          },
+          "12": {
+            "$id": "VariableID:280:2590",
+            "$type": "color",
+            "$value": "#b1f1cb"
+          }
+        },
+        "Orange": {
+          "1": {
+            "$id": "VariableID:529:4424",
+            "$type": "color",
+            "$value": "#17120e"
+          },
+          "2": {
+            "$id": "VariableID:529:4425",
+            "$type": "color",
+            "$value": "#1e160f"
+          },
+          "3": {
+            "$id": "VariableID:529:4426",
+            "$type": "color",
+            "$value": "#331e0b"
+          },
+          "4": {
+            "$id": "VariableID:529:4427",
+            "$type": "color",
+            "$value": "#462100"
+          },
+          "5": {
+            "$id": "VariableID:529:4428",
+            "$type": "color",
+            "$value": "#562800"
+          },
+          "6": {
+            "$id": "VariableID:529:4429",
+            "$type": "color",
+            "$value": "#66350c"
+          },
+          "7": {
+            "$id": "VariableID:529:4430",
+            "$type": "color",
+            "$value": "#7e451d"
+          },
+          "8": {
+            "$id": "VariableID:529:4431",
+            "$type": "color",
+            "$value": "#a35829"
+          },
+          "9": {
+            "$id": "VariableID:529:4432",
+            "$type": "color",
+            "$value": "#f76b15"
+          },
+          "10": {
+            "$id": "VariableID:529:4433",
+            "$type": "color",
+            "$value": "#ff801f"
+          },
+          "11": {
+            "$id": "VariableID:529:4434",
+            "$type": "color",
+            "$value": "#ffa057"
+          },
+          "12": {
+            "$id": "VariableID:529:4435",
+            "$type": "color",
+            "$value": "#ffe0c2"
+          }
+        },
+        "Red": {
+          "1": {
+            "$id": "VariableID:280:2352",
+            "$type": "color",
+            "$value": "#191111"
+          },
+          "2": {
+            "$id": "VariableID:280:2353",
+            "$type": "color",
+            "$value": "#201314"
+          },
+          "3": {
+            "$id": "VariableID:280:2354",
+            "$type": "color",
+            "$value": "#3b1219"
+          },
+          "4": {
+            "$id": "VariableID:280:2355",
+            "$type": "color",
+            "$value": "#500f1c"
+          },
+          "5": {
+            "$id": "VariableID:280:2357",
+            "$type": "color",
+            "$value": "#611623"
+          },
+          "6": {
+            "$id": "VariableID:280:2358",
+            "$type": "color",
+            "$value": "#72232d"
+          },
+          "7": {
+            "$id": "VariableID:280:2360",
+            "$type": "color",
+            "$value": "#8c333a"
+          },
+          "8": {
+            "$id": "VariableID:280:2361",
+            "$type": "color",
+            "$value": "#b54548"
+          },
+          "9": {
+            "$id": "VariableID:280:2363",
+            "$type": "color",
+            "$value": "#e5484d"
+          },
+          "10": {
+            "$id": "VariableID:280:2364",
+            "$type": "color",
+            "$value": "#ec5d5e"
+          },
+          "11": {
+            "$id": "VariableID:280:2365",
+            "$type": "color",
+            "$value": "#ff9592"
+          },
+          "12": {
+            "$id": "VariableID:280:2367",
+            "$type": "color",
+            "$value": "#ffd1d9"
+          }
+        },
+        "Indigo": {
+          "1": {
+            "$id": "VariableID:280:2640",
+            "$type": "color",
+            "$value": "#11131f"
+          },
+          "2": {
+            "$id": "VariableID:280:2641",
+            "$type": "color",
+            "$value": "#141726"
+          },
+          "3": {
+            "$id": "VariableID:280:2642",
+            "$type": "color",
+            "$value": "#182449"
+          },
+          "4": {
+            "$id": "VariableID:280:2643",
+            "$type": "color",
+            "$value": "#1d2e62"
+          },
+          "5": {
+            "$id": "VariableID:280:2644",
+            "$type": "color",
+            "$value": "#253974"
+          },
+          "6": {
+            "$id": "VariableID:280:2646",
+            "$type": "color",
+            "$value": "#304384"
+          },
+          "7": {
+            "$id": "VariableID:280:2647",
+            "$type": "color",
+            "$value": "#3a4f97"
+          },
+          "8": {
+            "$id": "VariableID:280:2649",
+            "$type": "color",
+            "$value": "#435db1"
+          },
+          "9": {
+            "$id": "VariableID:280:2650",
+            "$type": "color",
+            "$value": "#3e63dd"
+          },
+          "10": {
+            "$id": "VariableID:280:2652",
+            "$type": "color",
+            "$value": "#5472e4"
+          },
+          "11": {
+            "$id": "VariableID:280:2653",
+            "$type": "color",
+            "$value": "#9eb1ff"
+          },
+          "12": {
+            "$id": "VariableID:280:2654",
+            "$type": "color",
+            "$value": "#d6e1ff"
+          },
+          "Alpha": {
+            "24": {
+              "$id": "VariableID:5178:2",
+              "$type": "color",
+              "$value": "rgba(62, 99, 221, 0.2400)"
+            }
+          }
+        },
+        "Plum": {
+          "1": {
+            "$id": "VariableID:3849:236",
+            "$type": "color",
+            "$value": "#181118"
+          },
+          "2": {
+            "$id": "VariableID:3849:237",
+            "$type": "color",
+            "$value": "#201320"
+          },
+          "3": {
+            "$id": "VariableID:3849:238",
+            "$type": "color",
+            "$value": "#351a35"
+          },
+          "4": {
+            "$id": "VariableID:3849:239",
+            "$type": "color",
+            "$value": "#451d47"
+          },
+          "5": {
+            "$id": "VariableID:3849:240",
+            "$type": "color",
+            "$value": "#512454"
+          },
+          "6": {
+            "$id": "VariableID:3849:241",
+            "$type": "color",
+            "$value": "#5e3061"
+          },
+          "7": {
+            "$id": "VariableID:3849:242",
+            "$type": "color",
+            "$value": "#734079"
+          },
+          "8": {
+            "$id": "VariableID:3849:243",
+            "$type": "color",
+            "$value": "#92549c"
+          },
+          "9": {
+            "$id": "VariableID:3849:244",
+            "$type": "color",
+            "$value": "#ab4aba"
+          },
+          "10": {
+            "$id": "VariableID:3849:245",
+            "$type": "color",
+            "$value": "#b658c4"
+          },
+          "11": {
+            "$id": "VariableID:3849:246",
+            "$type": "color",
+            "$value": "#e796f3"
+          },
+          "12": {
+            "$id": "VariableID:3849:247",
+            "$type": "color",
+            "$value": "#f4d4f4"
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:1152:6017",
+      "name": "Effect",
+      "modeId": "1152:0",
+      "modeName": "Default",
+      "variables": {
+        "Opacity": {
+          "0": {
+            "$id": "VariableID:3873:513",
+            "$type": "number",
+            "$value": 0
+          },
+          "20": {
+            "$id": "VariableID:3873:515",
+            "$type": "number",
+            "$value": 20
+          },
+          "40": {
+            "$id": "VariableID:3873:517",
+            "$type": "number",
+            "$value": 40
+          },
+          "60": {
+            "$id": "VariableID:3873:519",
+            "$type": "number",
+            "$value": 60
+          },
+          "80": {
+            "$id": "VariableID:3873:521",
+            "$type": "number",
+            "$value": 80
+          },
+          "100": {
+            "$id": "VariableID:3913:519",
+            "$type": "number",
+            "$value": 100
+          },
+          "Transparent": {
+            "$id": "VariableID:3873:513",
+            "$type": "number",
+            "$value": "{Opacity.0}"
+          },
+          "Disabled": {
+            "$id": "VariableID:3873:519",
+            "$type": "number",
+            "$value": "{Opacity.60}"
+          }
+        },
+        "Shadow": {
+          "100": {
+            "Layer 1": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:3385:4002",
+                "$type": "number",
+                "$value": "{Space.1}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:3",
+                "$type": "number",
+                "$value": "{Space.2}"
+              },
+              "Spread": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:516",
+                "$type": "color",
+                "$value": "{Slate.Shadow.200}"
+              }
+            },
+            "Layer 2": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Blur": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Spread": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Color": {
+                "$id": "VariableID:4127:584",
+                "$type": "color",
+                "$value": "{Slate.Shadow.0}"
+              }
+            }
+          },
+          "200": {
+            "Layer 1": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:4",
+                "$type": "number",
+                "$value": "{Space.4}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:5",
+                "$type": "number",
+                "$value": "{Space.8}"
+              },
+              "Spread": {
+                "$id": "VariableID:4546:2665",
+                "$type": "number",
+                "$value": "{Space.neg4}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:517",
+                "$type": "color",
+                "$value": "{Slate.Shadow.400}"
+              }
+            },
+            "Layer 2": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:3",
+                "$type": "number",
+                "$value": "{Space.2}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:4",
+                "$type": "number",
+                "$value": "{Space.4}"
+              },
+              "Spread": {
+                "$id": "VariableID:4552:560",
+                "$type": "number",
+                "$value": "{Space.neg2}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:518",
+                "$type": "color",
+                "$value": "{Slate.Shadow.100}"
+              }
+            }
+          },
+          "300": {
+            "Layer 1": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:6",
+                "$type": "number",
+                "$value": "{Space.12}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:7",
+                "$type": "number",
+                "$value": "{Space.16}"
+              },
+              "Spread": {
+                "$id": "VariableID:4546:2665",
+                "$type": "number",
+                "$value": "{Space.neg4}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:519",
+                "$type": "color",
+                "$value": "{Slate.Shadow.300}"
+              }
+            },
+            "Layer 2": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:4",
+                "$type": "number",
+                "$value": "{Space.4}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:5",
+                "$type": "number",
+                "$value": "{Space.8}"
+              },
+              "Spread": {
+                "$id": "VariableID:4552:560",
+                "$type": "number",
+                "$value": "{Space.neg2}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:518",
+                "$type": "color",
+                "$value": "{Slate.Shadow.100}"
+              }
+            }
+          },
+          "400": {
+            "Layer 1": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:3242:5939",
+                "$type": "number",
+                "$value": "{Space.20}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:8",
+                "$type": "number",
+                "$value": "{Space.24}"
+              },
+              "Spread": {
+                "$id": "VariableID:4546:2665",
+                "$type": "number",
+                "$value": "{Space.neg4}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:519",
+                "$type": "color",
+                "$value": "{Slate.Shadow.300}"
+              }
+            },
+            "Layer 2": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:5",
+                "$type": "number",
+                "$value": "{Space.8}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:5",
+                "$type": "number",
+                "$value": "{Space.8}"
+              },
+              "Spread": {
+                "$id": "VariableID:4546:2665",
+                "$type": "number",
+                "$value": "{Space.neg4}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:518",
+                "$type": "color",
+                "$value": "{Slate.Shadow.100}"
+              }
+            }
+          },
+          "500": {
+            "Layer 1": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:8",
+                "$type": "number",
+                "$value": "{Space.24}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:11",
+                "$type": "number",
+                "$value": "{Space.48}"
+              },
+              "Spread": {
+                "$id": "VariableID:4552:561",
+                "$type": "number",
+                "$value": "{Space.neg12}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:520",
+                "$type": "color",
+                "$value": "{Slate.Shadow.500}"
+              }
+            },
+            "Layer 2": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Blur": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Spread": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Color": {
+                "$id": "VariableID:4127:584",
+                "$type": "color",
+                "$value": "{Slate.Shadow.0}"
+              }
+            }
+          },
+          "600": {
+            "Layer 1": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:1:9",
+                "$type": "number",
+                "$value": "{Space.32}"
+              },
+              "Blur": {
+                "$id": "VariableID:1:13",
+                "$type": "number",
+                "$value": "{Space.64}"
+              },
+              "Spread": {
+                "$id": "VariableID:4552:561",
+                "$type": "number",
+                "$value": "{Space.neg12}"
+              },
+              "Color": {
+                "$id": "VariableID:4094:520",
+                "$type": "color",
+                "$value": "{Slate.Shadow.500}"
+              }
+            },
+            "Layer 2": {
+              "X": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Y": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Blur": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Spread": {
+                "$id": "VariableID:3378:12139",
+                "$type": "number",
+                "$value": "{Space.0}"
+              },
+              "Color": {
+                "$id": "VariableID:4127:584",
+                "$type": "color",
+                "$value": "{Slate.Shadow.0}"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:4786:3106",
+      "name": "Scale",
+      "modeId": "5106:2",
+      "modeName": "Default",
+      "variables": {
+        "3Xs": {
+          "Width": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": "{Space.8}"
+          },
+          "Height": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": "{Space.8}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:3",
+            "$type": "number",
+            "$value": "{Space.2}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:847",
+            "$type": "number",
+            "$value": "{Rounded.2}"
+          },
+          "Padding": {
+            "$id": "VariableID:1:3",
+            "$type": "number",
+            "$value": "{Space.2}"
+          },
+          "Icon size": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": "{Space.8}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3810:8",
+              "$type": "number",
+              "$value": "{Body.100.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3810:9",
+              "$type": "number",
+              "$value": "{Body.100.Line-height}"
+            }
+          }
+        },
+        "2Xs": {
+          "Width": {
+            "$id": "VariableID:1:7",
+            "$type": "number",
+            "$value": "{Space.16}"
+          },
+          "Height": {
+            "$id": "VariableID:1:7",
+            "$type": "number",
+            "$value": "{Space.16}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:3",
+            "$type": "number",
+            "$value": "{Space.2}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:847",
+            "$type": "number",
+            "$value": "{Rounded.2}"
+          },
+          "Padding": {
+            "$id": "VariableID:1:4",
+            "$type": "number",
+            "$value": "{Space.4}"
+          },
+          "Icon size": {
+            "$id": "VariableID:64:5722",
+            "$type": "number",
+            "$value": "{Space.10}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3810:8",
+              "$type": "number",
+              "$value": "{Body.100.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3810:9",
+              "$type": "number",
+              "$value": "{Body.100.Line-height}"
+            }
+          }
+        },
+        "Xs": {
+          "Width": {
+            "$id": "VariableID:1:8",
+            "$type": "number",
+            "$value": "{Space.24}"
+          },
+          "Height": {
+            "$id": "VariableID:1:8",
+            "$type": "number",
+            "$value": "{Space.24}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:4",
+            "$type": "number",
+            "$value": "{Space.4}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:848",
+            "$type": "number",
+            "$value": "{Rounded.4}"
+          },
+          "Padding": {
+            "$id": "VariableID:64:5721",
+            "$type": "number",
+            "$value": "{Space.6}"
+          },
+          "Icon size": {
+            "$id": "VariableID:1:6",
+            "$type": "number",
+            "$value": "{Space.12}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3810:4",
+              "$type": "number",
+              "$value": "{Body.200.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3810:5",
+              "$type": "number",
+              "$value": "{Body.200.Line-height}"
+            }
+          }
+        },
+        "Sm": {
+          "Width": {
+            "$id": "VariableID:1:9",
+            "$type": "number",
+            "$value": "{Space.32}"
+          },
+          "Height": {
+            "$id": "VariableID:1:9",
+            "$type": "number",
+            "$value": "{Space.32}"
+          },
+          "Gap": {
+            "$id": "VariableID:64:5721",
+            "$type": "number",
+            "$value": "{Space.6}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:848",
+            "$type": "number",
+            "$value": "{Rounded.4}"
+          },
+          "Padding": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": "{Space.8}"
+          },
+          "Icon size": {
+            "$id": "VariableID:1:7",
+            "$type": "number",
+            "$value": "{Space.16}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3793:977",
+              "$type": "number",
+              "$value": "{Body.300.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3793:978",
+              "$type": "number",
+              "$value": "{Body.300.Line-height}"
+            }
+          }
+        },
+        "Md": {
+          "Width": {
+            "$id": "VariableID:1:10",
+            "$type": "number",
+            "$value": "{Space.40}"
+          },
+          "Height": {
+            "$id": "VariableID:1:10",
+            "$type": "number",
+            "$value": "{Space.40}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": "{Space.8}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:850",
+            "$type": "number",
+            "$value": "{Rounded.8}"
+          },
+          "Padding": {
+            "$id": "VariableID:64:5722",
+            "$type": "number",
+            "$value": "{Space.10}"
+          },
+          "Icon size": {
+            "$id": "VariableID:3242:5939",
+            "$type": "number",
+            "$value": "{Space.20}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3793:977",
+              "$type": "number",
+              "$value": "{Body.300.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3793:978",
+              "$type": "number",
+              "$value": "{Body.300.Line-height}"
+            }
+          }
+        },
+        "Lg": {
+          "Width": {
+            "$id": "VariableID:1:11",
+            "$type": "number",
+            "$value": "{Space.48}"
+          },
+          "Height": {
+            "$id": "VariableID:1:11",
+            "$type": "number",
+            "$value": "{Space.48}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:5",
+            "$type": "number",
+            "$value": "{Space.8}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:850",
+            "$type": "number",
+            "$value": "{Rounded.8}"
+          },
+          "Padding": {
+            "$id": "VariableID:1:6",
+            "$type": "number",
+            "$value": "{Space.12}"
+          },
+          "Icon size": {
+            "$id": "VariableID:3242:5939",
+            "$type": "number",
+            "$value": "{Space.20}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3793:981",
+              "$type": "number",
+              "$value": "{Body.400.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3793:982",
+              "$type": "number",
+              "$value": "{Body.400.Line-height}"
+            }
+          }
+        },
+        "Xl": {
+          "Width": {
+            "$id": "VariableID:1:12",
+            "$type": "number",
+            "$value": "{Space.56}"
+          },
+          "Height": {
+            "$id": "VariableID:1:12",
+            "$type": "number",
+            "$value": "{Space.56}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:6",
+            "$type": "number",
+            "$value": "{Space.12}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:850",
+            "$type": "number",
+            "$value": "{Rounded.8}"
+          },
+          "Padding": {
+            "$id": "VariableID:1:7",
+            "$type": "number",
+            "$value": "{Space.16}"
+          },
+          "Icon size": {
+            "$id": "VariableID:3242:5939",
+            "$type": "number",
+            "$value": "{Space.20}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3793:981",
+              "$type": "number",
+              "$value": "{Body.400.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3793:982",
+              "$type": "number",
+              "$value": "{Body.400.Line-height}"
+            }
+          }
+        },
+        "2Xl": {
+          "Width": {
+            "$id": "VariableID:1:13",
+            "$type": "number",
+            "$value": "{Space.64}"
+          },
+          "Height": {
+            "$id": "VariableID:1:13",
+            "$type": "number",
+            "$value": "{Space.64}"
+          },
+          "Gap": {
+            "$id": "VariableID:1:7",
+            "$type": "number",
+            "$value": "{Space.16}"
+          },
+          "Radius": {
+            "$id": "VariableID:3468:851",
+            "$type": "number",
+            "$value": "{Rounded.12}"
+          },
+          "Padding": {
+            "$id": "VariableID:3242:5939",
+            "$type": "number",
+            "$value": "{Space.20}"
+          },
+          "Icon size": {
+            "$id": "VariableID:1:8",
+            "$type": "number",
+            "$value": "{Space.24}"
+          },
+          "Text": {
+            "Size": {
+              "$id": "VariableID:3793:985",
+              "$type": "number",
+              "$value": "{Body.500.Font-size}"
+            },
+            "Height": {
+              "$id": "VariableID:3793:986",
+              "$type": "number",
+              "$value": "{Body.500.Line-height}"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "VariableCollectionId:4982:60",
+      "name": "Container",
+      "modeId": "4982:0",
+      "modeName": "Default",
+      "variables": {
+        "Width": {
+          "3Xs": {
+            "$id": "VariableID:4998:5",
+            "$type": "number",
+            "$value": 288
+          },
+          "2Xs": {
+            "$id": "VariableID:4982:62",
+            "$type": "number",
+            "$value": 288
+          },
+          "Xs": {
+            "$id": "VariableID:4983:7",
+            "$type": "number",
+            "$value": 320
+          },
+          "Sm": {
+            "$id": "VariableID:4983:8",
+            "$type": "number",
+            "$value": 384
+          },
+          "Md": {
+            "$id": "VariableID:4987:5",
+            "$type": "number",
+            "$value": 448
+          },
+          "Lg": {
+            "$id": "VariableID:4987:6",
+            "$type": "number",
+            "$value": 512
+          },
+          "Xl": {
+            "$id": "VariableID:4987:7",
+            "$type": "number",
+            "$value": 576
+          },
+          "2Xl": {
+            "$id": "VariableID:4987:8",
+            "$type": "number",
+            "$value": 672
+          },
+          "3Xl": {
+            "$id": "VariableID:4988:9",
+            "$type": "number",
+            "$value": 768
+          },
+          "4Xl": {
+            "$id": "VariableID:4988:10",
+            "$type": "number",
+            "$value": 896
+          },
+          "5Xl": {
+            "$id": "VariableID:4988:11",
+            "$type": "number",
+            "$value": 1024
+          }
+        },
+        "Height": {
+          "2Xs": {
+            "$id": "VariableID:4989:5",
+            "$type": "number",
+            "$value": 160
+          },
+          "Xs": {
+            "$id": "VariableID:4988:23",
+            "$type": "number",
+            "$value": 240
+          },
+          "Sm": {
+            "$id": "VariableID:4988:24",
+            "$type": "number",
+            "$value": 320
+          },
+          "Md": {
+            "$id": "VariableID:4988:25",
+            "$type": "number",
+            "$value": 480
+          },
+          "Lg": {
+            "$id": "VariableID:4988:26",
+            "$type": "number",
+            "$value": 560
+          },
+          "Xl": {
+            "$id": "VariableID:4988:27",
+            "$type": "number",
+            "$value": 640
+          },
+          "2Xl": {
+            "$id": "VariableID:4988:28",
+            "$type": "number",
+            "$value": 720
+          },
+          "3Xl": {
+            "$id": "VariableID:4988:29",
+            "$type": "number",
+            "$value": 800
+          }
+        }
+      }
+    }
+  ]
+}

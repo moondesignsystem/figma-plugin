@@ -5,7 +5,7 @@ export type GeneralObject = Record<
   string | number | boolean | object | VariableValue
 >;
 
-export type CustomFile = { fileName: string; body: GeneralObject };
+export type CustomFile = { body: GeneralObject };
 
 export type SelectedCollection = {
   id: string;
@@ -28,6 +28,7 @@ export type ImportJSONFileArgs2 = {
 };
 
 export type ImportedVariable = {
+  id: string;
   type: VariableDataType;
   value: VariableValue;
 };
@@ -45,13 +46,17 @@ export type VariableList = Record<
 >;
 
 export type ImportedMode = {
+  id: string;
   name: string;
   variables: VariableList;
 };
 
+export type ExportedCollection = Record<string, string>;
+
 export type ImportedCollection = {
+  id: string;
   name: string;
-  mode: ImportedMode[];
+  modes: ImportedMode[];
 };
 
 export type VariableMap = Record<string, Record<string, Variable>>;

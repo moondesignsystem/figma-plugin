@@ -5,7 +5,7 @@ const importedCollectionsExample: { collections: ImportedCollection[] } = {
   collections: [
     {
       name: "Color",
-      mode: [
+      modes: [
         {
           name: "Light",
           variables: {
@@ -38,7 +38,7 @@ const importedCollectionsExample: { collections: ImportedCollection[] } = {
     },
     {
       name: "Text",
-      mode: [
+      modes: [
         {
           name: "Default",
           variables: {
@@ -68,7 +68,7 @@ const importedCollectionsExample: { collections: ImportedCollection[] } = {
     },
     {
       name: "Dimension",
-      mode: [
+      modes: [
         {
           name: "Default",
           variables: {
@@ -89,7 +89,7 @@ const importedCollectionsExample: { collections: ImportedCollection[] } = {
     },
     {
       name: "Effect",
-      mode: [
+      modes: [
         {
           name: "Default",
           variables: {
