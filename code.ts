@@ -1,3 +1,4 @@
+//
 import {
   Alias,
   Aliases,
@@ -102,101 +103,6 @@ const createNewCollection2 = async (importedCollection: ImportedCollection) => {
 const loadExistingVariableMap2 = async () => {
   const variables = await figma.variables.getLocalVariablesAsync();
   const map = {};
-  variables.forEach((variable) => {
-    map[variable.variableCollectionId] =
-      map[variable.variableCollectionId] || {};
-    map[variable.variableCollectionId][variable.name] = variable;
-  });
-  return map;
-};
-
-const getExistingCollectionsAndModes = async () => {
-  const collections = await figma.variables
-    .getLocalVariableCollections()
-    .reduce((into, collection) => {
-      into[collection.name] = {
-        name: collection.name,
-        id: collection.id,
-        defaultModeId: collection.defaultModeId,
-        modes: collection.modes,
-      };
-      return into;
-    }, {} as Record<string, Partial<VariableCollection>>);
-
-  figma.ui.postMessage({
-    type: "LOAD_COLLECTIONS",
-    collections,
-  });
-};
-
-const importJSONFile = ({
-  selectedCollection,
-  selectedMode,
-  body,
-}: importJSONFileArgs) => {
-  const json = JSON.parse(body);
-  console.log("IMPORT");
-  const { collection, modeId } = createCollection(
-    selectedCollection,
-    selectedMode
-  );
-
-  if (!collection || !modeId) {
-    figma.closePlugin("Collection or mode not found");
-    return;
-  }
-
-  const variableMap = loadExistingVariableMap();
-
-  const aliases: Aliases = {};
-  const tokens: ImportedTokens = {};
-  Object.entries(json).forEach(([key, object]) => {
-    traverseToken({
-      variableMap,
-      collection,
-      modeId,
-      type: json.$type,
-      key,
-      object,
-      tokens,
-      aliases,
-    });
-  });
-  processAliases({ variableMap, collection, modeId, aliases, tokens });
-};
-
-const createCollection = (
-  selectedCollection: SelectedCollection,
-  selectedMode: SelectedMode
-) => {
-  // collection exists
-  if (selectedCollection.id) {
-    const collection = figma.variables.getVariableCollectionById(
-      selectedCollection.id
-    );
-    const modeId = selectedMode.id;
-    // mode exists
-    if (modeId) {
-      return { collection, modeId };
-    }
-
-    // otherwise create new mode
-    const newMode = collection.addMode(selectedMode.name);
-    return { collection, modeId: newMode };
-  }
-
-  // collection doesn't exist, so mode doesn't exist
-  const collection = figma.variables.createVariableCollection(
-    selectedCollection.name
-  );
-  const modeId = collection.modes[0].modeId;
-  collection.renameMode(modeId, selectedMode.name);
-  return { collection, modeId };
-};
-
-const loadExistingVariableMap = () => {
-  const variables = figma.variables.getLocalVariables();
-  const map: VariableMap = {};
   variables.forEach((variable) => {
     map[variable.variableCollectionId] =
       map[variable.variableCollectionId] || {};
@@ -436,13 +342,19 @@ const exportToJSON = async () => {
   });
   console.log("in here oe first collection", { collection: collections[0] });
 
-  const files: CustomFile[] = [];
+  const files: ImportedCollection[] = [];
+
+  // const files: CustomFile[] = [];
+  // for (const collection of collections) {
+  //   files.push(...(await processCollection(collection)));
+  // }
   for (const collection of collections) {
-    files.push(...(await processCollection(collection)));
+    files.push(await processCollection(collection));
   }
   figma.ui.postMessage({
     type: "EXPORT_RESULT",
-    data: { collections: files.map((file) => file.body) },
+    // data: { collections: files.map((file) => file.body) },
+    data: { collections: files },
   });
 };
 
@@ -452,12 +364,16 @@ const processCollection = async ({
   modes,
   variableIds,
 }: VariableCollection) => {
-  const files: CustomFile[] = [];
+  const collection = {
+    id,
+    name,
+    modes: [],
+  };
+  // const files: CustomFile[] = [];
+
   modes.forEach((mode) => {
     const file: CustomFile = {
       body: {
-        id,
-        name,
         modeId: mode.modeId,
         modeName: mode.name,
         variables: {},
@@ -483,7 +399,6 @@ const processCollection = async ({
         obj.$id = value.id || variableId;
         obj.$type = resolvedType === "COLOR" ? "color" : "number";
         if (value.type === "VARIABLE_ALIAS") {
-          console.log("in here oe variable alias", { variable, value });
           const variableById = figma.variables.getVariableById(value.id);
           obj.$value = `{${variableById.name.replace(/\//g, ".")}}`;
         } else {
@@ -492,10 +407,62 @@ const processCollection = async ({
         }
       }
     });
-    files.push(file);
+    collection.modes.push(file.body);
   });
-  return files;
+  return collection;
 };
+
+// const processCollection = async ({
+//   id,
+//   name,
+//   modes,
+//   variableIds,
+// }: VariableCollection) => {
+//   const files: CustomFile[] = [];
+
+//   modes.forEach((mode) => {
+//     const file: CustomFile = {
+//       body: {
+//         id,
+//         name,
+//         modeId: mode.modeId,
+//         modeName: mode.name,
+//         variables: {},
+//       },
+//     };
+//     variableIds.forEach((variableId) => {
+//       const variable: Variable | null =
+//         figma.variables.getVariableById(variableId);
+
+//       if (!variable) {
+//         return;
+//       }
+
+//       const { name, resolvedType, valuesByMode } = variable;
+//       const value = valuesByMode[mode.modeId];
+
+//       if (value !== undefined && ["COLOR", "FLOAT"].includes(resolvedType)) {
+//         let obj = file.body.variables;
+//         name.split("/").forEach((groupName) => {
+//           obj[groupName] = obj[groupName] || {};
+//           obj = obj[groupName];
+//         });
+//         obj.$id = value.id || variableId;
+//         obj.$type = resolvedType === "COLOR" ? "color" : "number";
+//         if (value.type === "VARIABLE_ALIAS") {
+//           console.log("in here oe variable alias", { variable, value });
+//           const variableById = figma.variables.getVariableById(value.id);
+//           obj.$value = `{${variableById.name.replace(/\//g, ".")}}`;
+//         } else {
+//           obj.$value =
+//             resolvedType === "COLOR" ? rgbToHex(value as RGBA) : value;
+//         }
+//       }
+//     });
+//     files.push(file);
+//   });
+//   return files;
+// };
 
 const rgbToHex = ({ r, g, b, a }: RGBA) => {
   if (a !== 1) {
