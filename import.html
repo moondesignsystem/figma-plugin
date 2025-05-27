@@ -70,7 +70,7 @@
 </style>
 <main>
   <form>
-    <textarea required placeholder="Import JSON"></textarea>
+    <textarea placeholder="Import JSON"></textarea>
     <button type="submit">Import Variables</button>
   </form>
 </main>
@@ -78,11 +78,7 @@
   document.querySelector("form").addEventListener("submit", (e) => {
     const body = document.querySelector("textarea").value.trim();
     e.preventDefault();
-    if (isValidJSON(body)) {
-      parent.postMessage({ pluginMessage: { body, type: "IMPORT" } }, "*");
-    } else {
-      alert("Invalid filename or JSON");
-    }
+    parent.postMessage({ pluginMessage: { body: {}, type: "IMPORT" } }, "*");
   });
 
   function isValidJSON(body) {
