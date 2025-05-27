@@ -80,13 +80,4 @@
     e.preventDefault();
     parent.postMessage({ pluginMessage: { body: {}, type: "IMPORT" } }, "*");
   });
-
-  function isValidJSON(body) {
-    try {
-      JSON.parse(body);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
 </script>

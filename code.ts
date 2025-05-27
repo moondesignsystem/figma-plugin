@@ -19,7 +19,7 @@ figma.ui.onmessage = async (e) => {
         await figma.variables.getLocalVariableCollectionsAsync();
 
       const localVariableCollections = localVariableCollectionsAll.filter(
-        (collection) => collection.name !== "━"
+        (collection) => collection.variableIds.length > 0
       );
 
       const marioCoreCollections = libraryCollections.filter(
