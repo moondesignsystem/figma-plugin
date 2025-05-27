@@ -7,10 +7,6 @@
   "enableProposedApi": false,
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
-  "menu": [
-    { "command": "import", "name": "Import Variables" },
-    { "command": "export", "name": "Export Variables" }
-  ],
-  "ui": { "import": "import.html", "export": "export.html" },
+  "ui": "import.html",
   "permissions": ["teamlibrary"]
 }

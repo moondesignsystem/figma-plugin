@@ -1,18 +1,8 @@
 //
 
-const pluginCommands = ["import", "export"];
-
-const figmaCommand = figma.command;
-
-const isValidCommand = pluginCommands.includes(figmaCommand);
-
-if (!isValidCommand) {
-  figma.closePlugin();
-}
-
 console.clear();
 
-figma.showUI(__uiFiles__[figmaCommand], {
+figma.showUI(__html__, {
   width: 500,
   height: 500,
   themeColors: true,
@@ -21,8 +11,6 @@ figma.showUI(__uiFiles__[figmaCommand], {
 figma.ui.onmessage = async (e) => {
   console.log("code received message", e);
   if (e.type === "IMPORT") {
-    console.log("in here oe inside import");
-
     try {
       const libraryCollections =
         await figma.teamLibrary.getAvailableLibraryVariableCollectionsAsync();
