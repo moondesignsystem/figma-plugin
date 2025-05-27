@@ -70,13 +70,11 @@
 </style>
 <main>
   <form>
-    <textarea placeholder="Import JSON"></textarea>
     <button type="submit">Import Variables</button>
   </form>
 </main>
 <script>
   document.querySelector("form").addEventListener("submit", (e) => {
-    const body = document.querySelector("textarea").value.trim();
     e.preventDefault();
     parent.postMessage({ pluginMessage: { body: {}, type: "IMPORT" } }, "*");
   });
