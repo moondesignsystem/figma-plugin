@@ -99,23 +99,11 @@
           value="allCollections"
           checked
         />
-        <label for="all-collections">All collections</label>
+        <label for="allCollections">All collections</label>
       </div>
     </div>
 
-    <div class="row">
-      <div>
-        <select name="collectionId" id="selectCollection">
-          <option value="">--Choose a collection--</option>
-        </select>
-      </div>
-
-      <div>
-        <select name="variableId" id="selectVariable">
-          <option value="">--Choose a variable--</option>
-        </select>
-      </div>
-    </div>
+    <div class="row" id="selectRow"></div>
 
     <div class="row">
       <button type="button" id="loadLibraries">Load Enabled Libraries</button>
@@ -124,6 +112,7 @@
   </form>
 </main>
 <script>
+  let localCollections = [];
   const form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -136,27 +125,42 @@
     parent.postMessage({ pluginMessage: { type: "LOAD_LIBRARIES" } }, "*");
   });
 
+  document.getElementById("byVariable").addEventListener("change", (event) => {
+    const importType = event.target.checked;
+
+    createCollectionsSelect(localCollections);
+    createVariablesSelect();
+  });
+
   document
-    .getElementById("selectCollection")
+    .getElementById("byCollection")
     .addEventListener("change", (event) => {
-      const collectionId = event.target.value;
-      parent.postMessage(
-        {
-          pluginMessage: {
-            type: "LOAD_LOCAL_COLLECTION_VARIABLES",
-            body: { collectionId },
-          },
-        },
-        "*"
-      );
+      const importType = event.target.checked;
+
+      const selectRow = document.getElementById("selectRow");
+
+      createCollectionsSelect(localCollections);
+      removeNode("selectVariable");
+    });
+
+  document
+    .getElementById("allCollections")
+    .addEventListener("change", (event) => {
+      const importType = event.target.checked;
+
+      const selectRow = document.getElementById("selectRow");
+
+      removeNode("selectCollection");
+      removeNode("selectVariable");
     });
 
   window.onmessage = ({ data: { pluginMessage } }) => {
     if (pluginMessage.type === "LIBRARIES") {
       const { libraryNames, localVariableCollections } = pluginMessage;
+      localCollections = localVariableCollections;
 
       populateLibrarySelect(libraryNames);
-      populateCollectionsSelect(localVariableCollections);
+      populateCollectionsSelect(localCollections);
     }
 
     if (pluginMessage.type === "COLLECTION_VARIABLES") {
@@ -183,6 +187,11 @@
 
   const populateCollectionsSelect = (collections) => {
     const select = document.getElementById("selectCollection");
+
+    if (!select) {
+      return;
+    }
+
     select.innerHTML = "";
     const emptyOption = document.createElement("option");
     emptyOption.value = "";
@@ -199,6 +208,11 @@
 
   const populateVariablesSelect = (variables) => {
     const select = document.getElementById("selectVariable");
+
+    if (!select) {
+      return;
+    }
+
     select.innerHTML = "";
     const emptyOption = document.createElement("option");
     emptyOption.value = "";
@@ -211,5 +225,71 @@
       option.textContent = name;
       select.appendChild(option);
     });
+  };
+
+  const createCollectionsSelect = (collections) => {
+    const selectCollections = document.getElementById("selectCollection");
+
+    if (selectCollections) {
+      return;
+    }
+
+    const selectRow = document.getElementById("selectRow");
+
+    const select = document.createElement("select");
+    select.name = "collectionId";
+    select.id = "selectCollection";
+    select.required = true;
+    selectRow.appendChild(select);
+
+    populateCollectionsSelect(collections);
+    addCollectionsSelectEventListener();
+  };
+
+  const createVariablesSelect = (variables) => {
+    const variableSelect = document.getElementById("selectVariable");
+
+    if (variableSelect) {
+      return;
+    }
+
+    const selectRow = document.getElementById("selectRow");
+
+    const select = document.createElement("select");
+    select.name = "variableId";
+    select.id = "selectVariable";
+    select.required = true;
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.textContent = "--Choose a variable--";
+    select.appendChild(emptyOption);
+    selectRow.appendChild(select);
+  };
+
+  const removeNode = (nodeId) => {
+    const node = document.getElementById(nodeId);
+
+    if (!node) {
+      return;
+    }
+
+    node.remove();
+  };
+
+  const addCollectionsSelectEventListener = () => {
+    document
+      .querySelector("#selectCollection")
+      .addEventListener("change", (event) => {
+        const collectionId = event.target.value;
+        parent.postMessage(
+          {
+            pluginMessage: {
+              type: "LOAD_LOCAL_COLLECTION_VARIABLES",
+              body: { collectionId },
+            },
+          },
+          "*"
+        );
+      });
   };
 </script>

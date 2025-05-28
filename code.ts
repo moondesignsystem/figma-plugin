@@ -60,6 +60,9 @@ figma.ui.onmessage = async (event) => {
       );
 
     if (importType === "byVariable") {
+      if (!variableId) {
+        return;
+      }
       await updateLocalVariable(
         collectionVariablesMapById[variableId],
         importedVariablesAliases
@@ -68,6 +71,9 @@ figma.ui.onmessage = async (event) => {
     }
 
     if (importType === "byCollection") {
+      if (!collectionId) {
+        return;
+      }
       await updateLocalCollection(
         localCollectionsMap[collectionId],
         importedVariablesAliases
