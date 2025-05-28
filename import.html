@@ -1,3 +1,8 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css"
+/>
+
 <style>
   :root {
     --spacing: 0.8rem;
@@ -32,22 +37,6 @@
     padding: var(--spacing);
   }
 
-  textarea {
-    background-color: var(--figma-color-bg-secondary);
-    border: 2px solid var(--figma-color-border);
-    color: var(--figma-color-text-secondary);
-    flex: 1;
-    font-family: Andale Mono, monospace;
-    font-size: 0.9rem;
-    overflow: auto;
-    padding: var(--spacing);
-    white-space: pre;
-  }
-  textarea:focus {
-    border-color: var(--figma-color-border-selected);
-    outline: none;
-  }
-
   button,
   textarea {
     display: block;
@@ -62,20 +51,165 @@
       Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
       sans-serif;
     font-weight: bold;
+    cursor: pointer;
   }
 
-  #export {
-    background-color: var(--figma-color-bg-component);
+  .row {
+    display: flex;
+    gap: var(--spacing);
+    margin: var(--spacing);
   }
 </style>
 <main>
   <form>
-    <button type="submit">Import Variables</button>
+    <div class="row">
+      <label for="selectLibrary">Select Library:</label>
+
+      <select name="libraryName" id="selectLibrary" required>
+        <option value="">--Choose a library--</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div>
+        <input
+          type="radio"
+          name="importType"
+          id="byVariable"
+          value="byVariable"
+        />
+        <label for="byVariable">By variable</label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          name="importType"
+          id="byCollection"
+          value="byCollection"
+        />
+        <label for="byCollection">By collection</label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          id="allCollections"
+          name="importType"
+          value="allCollections"
+          checked
+        />
+        <label for="all-collections">All collections</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <select name="collectionId" id="selectCollection">
+          <option value="">--Choose a collection--</option>
+        </select>
+      </div>
+
+      <div>
+        <select name="variableId" id="selectVariable">
+          <option value="">--Choose a variable--</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <button type="button" id="loadLibraries">Load Enabled Libraries</button>
+      <button type="submit">Import Variables</button>
+    </div>
   </form>
 </main>
 <script>
-  document.querySelector("form").addEventListener("submit", (e) => {
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    parent.postMessage({ pluginMessage: { body: {}, type: "IMPORT" } }, "*");
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    parent.postMessage({ pluginMessage: { body: obj, type: "IMPORT" } }, "*");
   });
+
+  document.getElementById("loadLibraries").addEventListener("click", () => {
+    parent.postMessage({ pluginMessage: { type: "LOAD_LIBRARIES" } }, "*");
+  });
+
+  document
+    .getElementById("selectCollection")
+    .addEventListener("change", (event) => {
+      const collectionId = event.target.value;
+      parent.postMessage(
+        {
+          pluginMessage: {
+            type: "LOAD_LOCAL_COLLECTION_VARIABLES",
+            body: { collectionId },
+          },
+        },
+        "*"
+      );
+    });
+
+  window.onmessage = ({ data: { pluginMessage } }) => {
+    if (pluginMessage.type === "LIBRARIES") {
+      const { libraryNames, localVariableCollections } = pluginMessage;
+
+      populateLibrarySelect(libraryNames);
+      populateCollectionsSelect(localVariableCollections);
+    }
+
+    if (pluginMessage.type === "COLLECTION_VARIABLES") {
+      const { collectionVariables } = pluginMessage;
+
+      populateVariablesSelect(collectionVariables);
+    }
+  };
+
+  const populateLibrarySelect = (libraryNames) => {
+    const select = document.getElementById("selectLibrary");
+    select.innerHTML = "";
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.textContent = "--Choose a library--";
+    select.appendChild(emptyOption);
+    libraryNames.forEach((name) => {
+      const option = document.createElement("option");
+      option.value = name;
+      option.textContent = name;
+      select.appendChild(option);
+    });
+  };
+
+  const populateCollectionsSelect = (collections) => {
+    const select = document.getElementById("selectCollection");
+    select.innerHTML = "";
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.textContent = "--Choose a collection--";
+    select.appendChild(emptyOption);
+    collections.forEach((collection) => {
+      const { name, id } = collection;
+      const option = document.createElement("option");
+      option.value = id;
+      option.textContent = name;
+      select.appendChild(option);
+    });
+  };
+
+  const populateVariablesSelect = (variables) => {
+    const select = document.getElementById("selectVariable");
+    select.innerHTML = "";
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.textContent = "--Choose a variable--";
+    select.appendChild(emptyOption);
+    variables.forEach((variable) => {
+      const { name, id } = variable;
+      const option = document.createElement("option");
+      option.value = id;
+      option.textContent = name;
+      select.appendChild(option);
+    });
+  };
 </script>
