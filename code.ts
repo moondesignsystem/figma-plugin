@@ -8,22 +8,43 @@ figma.showUI(__html__, {
   themeColors: true,
 });
 
-let libraries: any[];
-let localVariableCollections: any[];
-let localCollectionsMap: Record<string, any>;
-let collectionVariables: any[];
-let collectionVariablesMapById: Record<string, any>;
-
 figma.ui.onmessage = async (event) => {
   const { type, body } = event;
-  localVariableCollections = await getLocalVariableCollections();
-  localCollectionsMap = mapListById(localVariableCollections);
+  // let localVariableCollections: any[] = [];
+  // let localCollectionsMap: Record<string, any> = {};
+  let collectionVariables: any[] = [];
+  let collectionVariablesMapById: Record<string, any> = {};
+
+  // let collectionVariables;
+  // let collectionVariablesMapById: Record<string, any>;
 
   try {
     if (type === "LOAD_LIBRARIES") {
-      libraries = await loadLibraries();
+      const libraries = await loadLibraries();
+
+      const localVariableCollections = await getLocalVariableCollections();
+      const localVariableCollectionsData = localVariableCollections.map(
+        ({ id, name, variableIds }) => ({
+          id,
+          name,
+          variableIds,
+        })
+      );
+
+      const localCollectionsMap = mapListById(localVariableCollectionsData);
 
       const libraryNames = getLibraryNames(libraries);
+
+      await figma.clientStorage.setAsync("libraries", libraries);
+      await figma.clientStorage.setAsync("libraryNames", libraryNames);
+      await figma.clientStorage.setAsync(
+        "localVariableCollections",
+        localVariableCollectionsData
+      );
+      await figma.clientStorage.setAsync(
+        "localCollectionsMap",
+        localCollectionsMap
+      );
 
       figma.ui.postMessage({
         type: "LIBRARIES",
@@ -34,8 +55,20 @@ figma.ui.onmessage = async (event) => {
       return;
     }
 
+    const libraries = await figma.clientStorage.getAsync("libraries");
+
+    const localVariableCollections = await figma.clientStorage.getAsync(
+      "localVariableCollections"
+    );
+
+    const localCollectionsMap = await figma.clientStorage.getAsync(
+      "localCollectionsMap"
+    );
+
     if (type === "LOAD_LOCAL_COLLECTION_VARIABLES") {
       const collectionId = body.collectionId;
+
+      console.log("in here oe", { collectionId, localCollectionsMap });
       collectionVariables = await getVariablesByLocalCollection(
         localCollectionsMap[collectionId]
       );
@@ -53,6 +86,15 @@ figma.ui.onmessage = async (event) => {
       libraries,
       libraryName
     );
+
+    console.log("in here oe import", {
+      libraries,
+      libraryName,
+      importType,
+      collectionId,
+      variableId,
+      collectionsByLibraryName,
+    });
 
     const { importedVariablesAliases } =
       await importVariableAliasesFromImportedCollections(
@@ -80,6 +122,11 @@ figma.ui.onmessage = async (event) => {
       );
       return;
     }
+
+    console.log("in here oe all local collections", {
+      localVariableCollections,
+      importedVariablesAliases,
+    });
 
     await updateAllLocalCollections(
       localVariableCollections,

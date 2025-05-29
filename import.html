@@ -59,6 +59,21 @@
     gap: var(--spacing);
     margin: var(--spacing);
   }
+
+  .hidden {
+    display: none;
+  }
+
+  .shown {
+    display: block;
+  }
+
+  button[disabled] {
+    background: white;
+    color: black;
+    opacity: 0.5;
+    cursor: initial;
+  }
 </style>
 <main>
   <form>
@@ -105,15 +120,20 @@
 
     <div class="row" id="selectRow"></div>
 
+    <div id="loadingItem" class="hidden">Loading...</div>
+
     <div class="row">
       <button type="button" id="loadLibraries">Load Enabled Libraries</button>
-      <button type="submit">Import Variables</button>
+      <button type="submit" id="submitButton" disabled>Import Variables</button>
     </div>
   </form>
 </main>
 <script>
   let localCollections = [];
   const form = document.querySelector("form");
+  const loadLibrariesBtn = document.getElementById("loadLibraries");
+  const submitBtn = document.getElementById("submitButton");
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -121,8 +141,10 @@
     parent.postMessage({ pluginMessage: { body: obj, type: "IMPORT" } }, "*");
   });
 
-  document.getElementById("loadLibraries").addEventListener("click", () => {
+  loadLibrariesBtn.addEventListener("click", () => {
     parent.postMessage({ pluginMessage: { type: "LOAD_LIBRARIES" } }, "*");
+    loadLibrariesBtn.innerHTML = "Loading...";
+    loadLibrariesBtn.setAttribute("disabled", true);
   });
 
   document.getElementById("byVariable").addEventListener("change", (event) => {
@@ -130,6 +152,16 @@
 
     createCollectionsSelect(localCollections);
     createVariablesSelect();
+  });
+
+  document.getElementById("selectLibrary").addEventListener("change", () => {
+    const importType = document.querySelector(
+      "input[type='radio']:checked"
+    ).value;
+
+    if (importType === "allCollections") {
+      enableSubmitButton();
+    }
   });
 
   document
@@ -161,12 +193,17 @@
 
       populateLibrarySelect(libraryNames);
       populateCollectionsSelect(localCollections);
+
+      loadLibrariesBtn.innerHTML = "Load Enabled Libraries";
+      loadLibrariesBtn.removeAttribute("disabled");
+      return;
     }
 
     if (pluginMessage.type === "COLLECTION_VARIABLES") {
       const { collectionVariables } = pluginMessage;
 
       populateVariablesSelect(collectionVariables);
+      document.getElementById("loadingItem").className = "hidden";
     }
   };
 
@@ -290,6 +327,15 @@
           },
           "*"
         );
+        document.getElementById("loadingItem").className = "shown";
       });
+  };
+
+  const enableSubmitButton = () => {
+    submitBtn.removeAttribute("disabled");
+  };
+
+  const disableSubmitButton = () => {
+    submitBtn.setAttribute("disabled", true);
   };
 </script>
