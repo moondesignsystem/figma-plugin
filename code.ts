@@ -4,7 +4,7 @@ console.clear();
 
 figma.showUI(__html__, {
   width: 500,
-  height: 500,
+  height: 600,
   themeColors: true,
 });
 

@@ -1,0 +1,31 @@
+:root {
+  --spacing: 0.25rem;
+  --text-size: 0.875rem;
+  --title-size: 1rem;
+}
+
+.figma-light {
+  --bg: #ffffff;
+  --border: #d1d1d1;
+  --bg-secondary: #f0f0f0;
+  --text: #000000;
+  --bg-tertiary: #e0e0e0;
+  --icon: #000000;
+  --bg-brand: #5b5bd6;
+  --text-on-brand: #ffffff;
+  --icon-on-brand: #ffffff;
+}
+
+/* Collection name: plugin */
+/* Mode: dark */
+.figma-dark {
+  --bg: #2c2c2c;
+  --border: #43484e;
+  --bg-secondary: #383838;
+  --text: #ffffff;
+  --bg-tertiary: #444444;
+  --icon: #ffffff;
+  --bg-brand: #5b5bd6;
+  --text-on-brand: #ffffff;
+  --icon-on-brand: #ffffff;
+}

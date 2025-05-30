@@ -1,5 +1,5 @@
 {
-  "name": "Moon DS Variables",
+  "name": "Variable Management",
   "id": "1225498390710809905",
   "api": "1.0.0",
   "main": "./dist/code.js",
