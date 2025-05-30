@@ -126,6 +126,7 @@
       <button type="button" id="loadLibraries">Load Enabled Libraries</button>
       <button type="submit" id="submitButton" disabled>Import Variables</button>
     </div>
+    <div id="message" class="hidden"></div>
   </form>
 </main>
 <script>
@@ -133,12 +134,21 @@
   const form = document.querySelector("form");
   const loadLibrariesBtn = document.getElementById("loadLibraries");
   const submitBtn = document.getElementById("submitButton");
+  const librariesSelect = document.getElementById("selectLibrary");
+  const byVariableElement = document.getElementById("byVariable");
+  const byCollectionElement = document.getElementById("byCollection");
+  const allCollectionsElement = document.getElementById("allCollections");
+  const messageElement = document.getElementById("message");
+  const loadingItem = document.getElementById("loadingItem");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     parent.postMessage({ pluginMessage: { body: obj, type: "IMPORT" } }, "*");
+    loadingItem.className = "shown";
+
+    disableSubmitButton();
   });
 
   loadLibrariesBtn.addEventListener("click", () => {
@@ -147,14 +157,7 @@
     loadLibrariesBtn.setAttribute("disabled", true);
   });
 
-  document.getElementById("byVariable").addEventListener("change", (event) => {
-    const importType = event.target.checked;
-
-    createCollectionsSelect(localCollections);
-    createVariablesSelect();
-  });
-
-  document.getElementById("selectLibrary").addEventListener("change", () => {
+  librariesSelect.addEventListener("change", () => {
     const importType = document.querySelector(
       "input[type='radio']:checked"
     ).value;
@@ -164,27 +167,40 @@
     }
   });
 
-  document
-    .getElementById("byCollection")
-    .addEventListener("change", (event) => {
-      const importType = event.target.checked;
+  byVariableElement.addEventListener("change", (event) => {
+    const importType = event.target.checked;
 
-      const selectRow = document.getElementById("selectRow");
+    createCollectionsSelect(localCollections);
+    createVariablesSelect();
+    hideMessageElement();
+    disableSubmitButton();
+  });
 
-      createCollectionsSelect(localCollections);
-      removeNode("selectVariable");
-    });
+  byCollectionElement.addEventListener("change", (event) => {
+    const importType = event.target.checked;
 
-  document
-    .getElementById("allCollections")
-    .addEventListener("change", (event) => {
-      const importType = event.target.checked;
+    const selectRow = document.getElementById("selectRow");
+    createCollectionsSelect(localCollections);
+    removeNode("selectVariable");
+    hideMessageElement();
+    disableSubmitButton();
+  });
 
-      const selectRow = document.getElementById("selectRow");
+  allCollectionsElement.addEventListener("change", (event) => {
+    const importType = event.target.checked;
 
-      removeNode("selectCollection");
-      removeNode("selectVariable");
-    });
+    const selectRow = document.getElementById("selectRow");
+
+    removeNode("selectCollection");
+    removeNode("selectVariable");
+    hideMessageElement();
+
+    const librariesSelectValue = librariesSelect.value;
+
+    if (librariesSelectValue) {
+      enableSubmitButton();
+    }
+  });
 
   window.onmessage = ({ data: { pluginMessage } }) => {
     if (pluginMessage.type === "LIBRARIES") {
@@ -203,12 +219,20 @@
       const { collectionVariables } = pluginMessage;
 
       populateVariablesSelect(collectionVariables);
-      document.getElementById("loadingItem").className = "hidden";
+      loadingItem.className = "hidden";
+    }
+
+    if (pluginMessage.type === "IMPORTED_OK") {
+      const { message } = pluginMessage;
+
+      loadingItem.className = "hidden";
+      messageElement.textContent = message;
+      messageElement.className = "shown";
     }
   };
 
   const populateLibrarySelect = (libraryNames) => {
-    const select = document.getElementById("selectLibrary");
+    const select = librariesSelect;
     select.innerHTML = "";
     const emptyOption = document.createElement("option");
     emptyOption.value = "";
@@ -301,6 +325,7 @@
     emptyOption.textContent = "--Choose a variable--";
     select.appendChild(emptyOption);
     selectRow.appendChild(select);
+    addVariablesSelectEventListener();
   };
 
   const removeNode = (nodeId) => {
@@ -313,21 +338,46 @@
     node.remove();
   };
 
+  const addVariablesSelectEventListener = () => {
+    document
+      .querySelector("#selectVariable")
+      .addEventListener("change", (event) => {
+        const variableId = event.target.value;
+
+        if (!variableId) {
+          return;
+        }
+
+        enableSubmitButton();
+      });
+  };
+
   const addCollectionsSelectEventListener = () => {
     document
       .querySelector("#selectCollection")
       .addEventListener("change", (event) => {
         const collectionId = event.target.value;
-        parent.postMessage(
-          {
-            pluginMessage: {
-              type: "LOAD_LOCAL_COLLECTION_VARIABLES",
-              body: { collectionId },
+        const isByVariableChecked = byVariableElement.checked;
+
+        if (!collectionId) {
+          return;
+        }
+
+        if (isByVariableChecked) {
+          parent.postMessage(
+            {
+              pluginMessage: {
+                type: "LOAD_LOCAL_COLLECTION_VARIABLES",
+                body: { collectionId },
+              },
             },
-          },
-          "*"
-        );
-        document.getElementById("loadingItem").className = "shown";
+            "*"
+          );
+          loadingItem.className = "shown";
+          return;
+        }
+
+        enableSubmitButton();
       });
   };
 
@@ -337,5 +387,9 @@
 
   const disableSubmitButton = () => {
     submitBtn.setAttribute("disabled", true);
+  };
+
+  const hideMessageElement = () => {
+    messageElement.className = "hidden";
   };
 </script>

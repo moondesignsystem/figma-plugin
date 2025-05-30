@@ -10,13 +10,6 @@ figma.showUI(__html__, {
 
 figma.ui.onmessage = async (event) => {
   const { type, body } = event;
-  // let localVariableCollections: any[] = [];
-  // let localCollectionsMap: Record<string, any> = {};
-  let collectionVariables: any[] = [];
-  let collectionVariablesMapById: Record<string, any> = {};
-
-  // let collectionVariables;
-  // let collectionVariablesMapById: Record<string, any>;
 
   try {
     if (type === "LOAD_LIBRARIES") {
@@ -68,33 +61,35 @@ figma.ui.onmessage = async (event) => {
     if (type === "LOAD_LOCAL_COLLECTION_VARIABLES") {
       const collectionId = body.collectionId;
 
-      console.log("in here oe", { collectionId, localCollectionsMap });
-      collectionVariables = await getVariablesByLocalCollection(
+      const collectionVariables = await getVariablesByLocalCollection(
         localCollectionsMap[collectionId]
       );
-      collectionVariablesMapById = mapListById(collectionVariables);
+
+      const collectionVariablesData = collectionVariables.map(
+        ({ id, name, valuesByMode }) => ({
+          id,
+          name,
+          valuesByMode,
+        })
+      );
+
+      const collectionVariablesMapById = mapListById(collectionVariablesData);
+      await figma.clientStorage.setAsync(
+        "collectionVariablesMapById",
+        collectionVariablesMapById
+      );
       figma.ui.postMessage({
         type: "COLLECTION_VARIABLES",
         collectionVariables: listSelectData(collectionVariables),
       });
       return;
     }
-
     const { libraryName, importType, collectionId, variableId } = body;
 
     const collectionsByLibraryName = getCollectionsByLibraryName(
       libraries,
       libraryName
     );
-
-    console.log("in here oe import", {
-      libraries,
-      libraryName,
-      importType,
-      collectionId,
-      variableId,
-      collectionsByLibraryName,
-    });
 
     const { importedVariablesAliases } =
       await importVariableAliasesFromImportedCollections(
@@ -105,10 +100,16 @@ figma.ui.onmessage = async (event) => {
       if (!variableId) {
         return;
       }
-      await updateLocalVariable(
-        collectionVariablesMapById[variableId],
-        importedVariablesAliases
-      );
+
+      const variable = await figma.variables.getVariableByIdAsync(variableId);
+
+      await updateLocalVariable(variable, importedVariablesAliases);
+
+      figma.ui.postMessage({
+        type: "IMPORTED_OK",
+        message: "Variable imported successfully",
+      });
+
       return;
     }
 
@@ -120,18 +121,22 @@ figma.ui.onmessage = async (event) => {
         localCollectionsMap[collectionId],
         importedVariablesAliases
       );
+      figma.ui.postMessage({
+        type: "IMPORTED_OK",
+        message: "Collection imported successfully",
+      });
       return;
     }
-
-    console.log("in here oe all local collections", {
-      localVariableCollections,
-      importedVariablesAliases,
-    });
 
     await updateAllLocalCollections(
       localVariableCollections,
       importedVariablesAliases
     );
+
+    figma.ui.postMessage({
+      type: "IMPORTED_OK",
+      message: "All collections imported successfully",
+    });
   } catch (error) {
     console.error("Error importing Library:", error);
   }
@@ -226,6 +231,11 @@ const updateLocalVariable = async (
   localCollectionVariable,
   importedVariablesAliases
 ) => {
+  console.log("in here oe ", {
+    localCollectionVariable,
+    importedVariablesAliases,
+  });
+
   await Promise.all(
     Object.entries(localCollectionVariable.valuesByMode).map(
       async ([modeId, aliasVariable]) => {
@@ -235,6 +245,11 @@ const updateLocalVariable = async (
           modeId,
           importedVariablesAliases[localCollectionAliasVariable.name]
         );
+        console.log("in here oe ", {
+          modeId,
+          aliasVariable,
+          localCollectionAliasVariable,
+        });
       }
     )
   );

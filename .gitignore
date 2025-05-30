@@ -3,6 +3,5 @@
 *.log.*
 node_modules
 
-out/
 dist/
-code.js
+.DS_Store
