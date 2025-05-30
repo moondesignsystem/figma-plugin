@@ -231,11 +231,6 @@ const updateLocalVariable = async (
   localCollectionVariable,
   importedVariablesAliases
 ) => {
-  console.log("in here oe ", {
-    localCollectionVariable,
-    importedVariablesAliases,
-  });
-
   await Promise.all(
     Object.entries(localCollectionVariable.valuesByMode).map(
       async ([modeId, aliasVariable]) => {
@@ -245,11 +240,6 @@ const updateLocalVariable = async (
           modeId,
           importedVariablesAliases[localCollectionAliasVariable.name]
         );
-        console.log("in here oe ", {
-          modeId,
-          aliasVariable,
-          localCollectionAliasVariable,
-        });
       }
     )
   );

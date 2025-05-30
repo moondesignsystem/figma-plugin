@@ -1,15 +1,19 @@
 {
   "name": "moonds-variables",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "author": "Mario Hernandez",
+  "description": "Moon DS Variables",
   "main": "code.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
     "lint": "eslint --ext .ts,.tsx --ignore-pattern node_modules .",
     "lint:fix": "eslint --ext .ts,.tsx --ignore-pattern node_modules --fix .",
-    "watch": "npm run build -- --watch"
+    "build": "npm run build:parcel && npm run build:code",
+    "build:code": "tsc -p tsconfig.json",
+    "watch:code": "npm run build:code -- --watch",
+    "clean:parcel": "rm -rf ./.parcel-cache",
+    "build:parcel": "npm run clean:parcel && parcel build ./plugin_ui/index.html --dist-dir dist/plugin_ui/",
+    "watch:parcel": "npm run build:parcel && parcel watch ./plugin_ui/index.html --dist-dir dist/plugin_ui/"
   },
-  "author": "Mario Hernandez",
   "license": "MIT License",
   "devDependencies": {
     "@figma/eslint-plugin-figma-plugins": "*",
@@ -17,7 +21,11 @@
     "@typescript-eslint/eslint-plugin": "^6.12.0",
     "@typescript-eslint/parser": "^6.12.0",
     "eslint": "^8.54.0",
+    "parcel": "^2.15.2",
     "typescript": "^5.3.2"
+  },
+  "targets": {
+    "main": false
   },
   "eslintConfig": {
     "extends": [

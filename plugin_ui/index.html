@@ -1,0 +1,68 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css"
+/>
+
+<style>
+  @import "./css/base.css";
+</style>
+
+<main>
+  in here oe 10
+  <form>
+    <div class="row">
+      <label for="selectLibrary">Select Library:</label>
+
+      <select name="libraryName" id="selectLibrary" required>
+        <option value="">--Choose a library--</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div>
+        <input
+          type="radio"
+          name="importType"
+          id="byVariable"
+          value="byVariable"
+        />
+        <label for="byVariable">By variable</label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          name="importType"
+          id="byCollection"
+          value="byCollection"
+        />
+        <label for="byCollection">By collection</label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          id="allCollections"
+          name="importType"
+          value="allCollections"
+          checked
+        />
+        <label for="allCollections">All collections</label>
+      </div>
+    </div>
+
+    <div class="row" id="selectRow"></div>
+
+    <div id="loadingItem" class="hidden">Loading...</div>
+
+    <div class="row">
+      <button type="button" id="loadLibraries">Load Enabled Libraries</button>
+      <button type="submit" id="submitButton" disabled>Import Variables</button>
+    </div>
+    <div id="message" class="hidden"></div>
+  </form>
+</main>
+
+<script type="module">
+  import "./js/index.js";
+</script>

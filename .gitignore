@@ -3,5 +3,6 @@
 *.log.*
 node_modules
 
-dist/
+dist*/
 .DS_Store
+.parcel*

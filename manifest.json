@@ -7,7 +7,7 @@
   "enableProposedApi": false,
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
-  "ui": "import.html",
+  "ui": "./dist/plugin_ui/index.html",
   "permissions": ["teamlibrary"],
   "networkAccess": {
     "allowedDomains": [
