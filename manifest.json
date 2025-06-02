@@ -8,11 +8,5 @@
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
   "ui": "./dist/plugin_ui/index.html",
-  "permissions": ["teamlibrary"],
-  "networkAccess": {
-    "allowedDomains": [
-      "https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/",
-      "https://rsms.me/"
-    ]
-  }
+  "permissions": ["teamlibrary"]
 }
