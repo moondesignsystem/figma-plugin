@@ -3,70 +3,76 @@
 </style>
 
 <main>
-  <div class="title-section">
-    <strong class="title">Remap Variables</strong>
-    <p>Remap variables to a new library inside the variables table.</p>
-  </div>
-
-  <form class="form">
-    <div class="box box-border">
-      <label for="selectLibrary" class="title">Target:</label>
-
-      <select name="libraryName" id="selectLibrary" required>
-        <option value="">--Choose a library--</option>
-      </select>
+  <div class="main-container">
+    <div class="title-section">
+      <strong class="title">Remap Variables</strong>
+      <p>Remap variables to a new library inside the variables table.</p>
     </div>
 
-    <div class="box box-border">
-      <p class="title">Scope</p>
+    <form class="form">
+      <div class="form-container">
+        <div class="box box-border">
+          <label for="selectLibrary" class="title">Target:</label>
 
-      <label class="container"
-        >Remap by single variable
-        <input
-          type="radio"
-          name="importType"
-          id="byVariable"
-          value="byVariable"
-        />
-        <span class="checkmark"></span>
-      </label>
+          <select name="libraryName" id="selectLibrary" required>
+            <option value="">--Choose a library--</option>
+          </select>
+        </div>
 
-      <label class="container"
-        >Remap by single collection
-        <input
-          type="radio"
-          name="importType"
-          id="byCollection"
-          value="byCollection"
-        />
-        <span class="checkmark"></span>
-      </label>
+        <div class="box box-border">
+          <p class="title">Scope</p>
 
-      <label class="container"
-        >Remap by all collections
-        <input
-          type="radio"
-          name="importType"
-          id="allCollections"
-          value="allCollections"
-          checked
-        />
-        <span class="checkmark"></span>
-      </label>
+          <label class="container"
+            >Remap by single variable
+            <input
+              type="radio"
+              name="importType"
+              id="byVariable"
+              value="byVariable"
+            />
+            <span class="checkmark"></span>
+          </label>
 
-      <div class="box" id="single-selection-box">
-        <p class="title">Single selection</p>
-        <div class="row" id="selectRow"></div>
+          <label class="container"
+            >Remap by single collection
+            <input
+              type="radio"
+              name="importType"
+              id="byCollection"
+              value="byCollection"
+            />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container"
+            >Remap by all collections
+            <input
+              type="radio"
+              name="importType"
+              id="allCollections"
+              value="allCollections"
+              checked
+            />
+            <span class="checkmark"></span>
+          </label>
+
+          <div class="box" id="single-selection-box">
+            <p class="title">Single selection</p>
+            <div class="row" id="selectRow"></div>
+          </div>
+        </div>
+
+        <div id="loadingItem" class="hidden">Loading...</div>
+        <div id="message" class="hidden"></div>
       </div>
-    </div>
 
-    <div id="loadingItem" class="hidden">Loading...</div>
-    <div id="message" class="hidden"></div>
-
-    <div class="box">
-      <button type="submit" id="submitButton" disabled>Remap Variables</button>
-    </div>
-  </form>
+      <div class="box">
+        <button type="submit" id="submitButton" disabled>
+          Remap Variables
+        </button>
+      </div>
+    </form>
+  </div>
 </main>
 
 <script type="module">

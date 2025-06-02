@@ -36,7 +36,7 @@ button {
   background-color: var(--bg-brand);
   border: none;
   color: var(--text-on-brand);
-  padding: calc(var(--spacing) * 3) 0;
+  height: calc(var(--spacing) * 12);
   font-weight: bold;
   cursor: pointer;
 }
@@ -85,7 +85,14 @@ button[disabled] {
 .form {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--spacing) * 4);
+  height: 100%;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 select {
@@ -159,4 +166,10 @@ select {
   border-radius: 50%;
   background: var(--icon-on-brand);
   transform: translate(-50%, -50%);
+}
+
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
