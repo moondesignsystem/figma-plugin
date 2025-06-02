@@ -8,7 +8,8 @@ figma.showUI(__html__, {
   themeColors: true,
 });
 
-type GenericType = Record<string, any>;
+type BaseType = Record<string, unknown>;
+type ImportedVariableAliasMap = Record<string, VariableAlias>;
 
 figma.ui.onmessage = async (event) => {
   const { type, body } = event;
@@ -63,21 +64,20 @@ figma.ui.onmessage = async (event) => {
     if (type === "LOAD_LOCAL_COLLECTION_VARIABLES") {
       const collectionId = body.collectionId;
 
-      const collectionVariables = await getVariablesByLocalCollection(
-        localCollectionsMap[collectionId]
-      );
+      const collectionVariables: (Variable | null)[] =
+        await getVariablesByLocalCollection(localCollectionsMap[collectionId]);
 
       if (!collectionVariables) {
         return;
       }
 
-      const collectionVariablesData = (collectionVariables as Variable[]).map(
-        ({ id, name, valuesByMode }) => ({
+      const collectionVariablesData = collectionVariables
+        .filter((item) => item !== null)
+        .map(({ id, name, valuesByMode }) => ({
           id,
           name,
           valuesByMode,
-        })
-      );
+        }));
 
       const collectionVariablesMapById = mapListById(collectionVariablesData);
       await figma.clientStorage.setAsync(
@@ -86,7 +86,7 @@ figma.ui.onmessage = async (event) => {
       );
       figma.ui.postMessage({
         type: "COLLECTION_VARIABLES",
-        collectionVariables: listSelectData(collectionVariables),
+        collectionVariables: listSelectData(collectionVariables as Variable[]),
       });
       return;
     }
@@ -156,9 +156,9 @@ const loadLibraries = async () => {
 };
 
 const importVariableAliasesFromImportedCollections = async (
-  collections: VariableCollection[]
+  collections: LibraryVariableCollection[]
 ) => {
-  const importedCollectionsMap: GenericType = {};
+  const importedCollectionsMap: Record<string, LibraryVariable[]> = {};
 
   await Promise.all(
     collections.map(async ({ name, key }) => {
@@ -169,7 +169,7 @@ const importVariableAliasesFromImportedCollections = async (
 
   const importedCollectionsMapKeys = Object.keys(importedCollectionsMap);
 
-  const importedCollectionsVariablesMap = {};
+  const importedCollectionsVariablesMap: Record<string, LibraryVariable> = {};
 
   importedCollectionsMapKeys.forEach((collectionKey) => {
     importedCollectionsMap[collectionKey].forEach((variable) => {
@@ -181,7 +181,7 @@ const importVariableAliasesFromImportedCollections = async (
     importedCollectionsVariablesMap
   );
 
-  const importedVariables: GenericType = {};
+  const importedVariables: Record<string, Variable> = {};
 
   await Promise.all(
     importedCollectionsVariablesMapKeys.map(async (variableKey) => {
@@ -192,7 +192,7 @@ const importVariableAliasesFromImportedCollections = async (
     })
   );
 
-  const importedVariablesAliases: GenericType = {};
+  const importedVariablesAliases: ImportedVariableAliasMap = {};
 
   const importedVariablesKeys = importedCollectionsVariablesMapKeys;
   importedVariablesKeys.map((importedVariableKey) => {
@@ -239,18 +239,20 @@ const getVariablesByLocalCollection = async (
 
 const updateLocalVariable = async (
   localCollectionVariable: Variable,
-  importedVariablesAliases: GenericType
+  importedVariablesAliases: ImportedVariableAliasMap
 ) => {
   await Promise.all(
     Object.entries(localCollectionVariable.valuesByMode).map(
       async ([modeId, aliasVariable]) => {
         const localCollectionAliasVariable: Variable =
           (await figma.variables.getVariableByIdAsync(
-            aliasVariable.id
+            (aliasVariable as VariableAlias).id
           )) as Variable;
         localCollectionVariable.setValueForMode(
           modeId,
-          importedVariablesAliases[localCollectionAliasVariable.name]
+          importedVariablesAliases[
+            localCollectionAliasVariable.name
+          ] as VariableAlias
         );
       }
     )
@@ -259,7 +261,7 @@ const updateLocalVariable = async (
 
 const updateLocalCollection = async (
   localCollection: VariableCollection,
-  importedVariablesAliases: GenericType
+  importedVariablesAliases: ImportedVariableAliasMap
 ) => {
   const localCollectionVariablesByIds = await getVariablesByLocalCollection(
     localCollection
@@ -275,7 +277,7 @@ const updateLocalCollection = async (
 
 const updateAllLocalCollections = async (
   localVariableCollections: VariableCollection[],
-  importedVariablesAliases: GenericType
+  importedVariablesAliases: ImportedVariableAliasMap
 ) => {
   await Promise.all(
     localVariableCollections.map(async (localCollection) => {
@@ -311,17 +313,17 @@ const getCollectionsByLibraryName = (
   );
 };
 
-const sortByName = (items) =>
+const sortByName = (items: (BaseType & { name: string })[]) =>
   items.slice().sort((a, b) => a.name.localeCompare(b.name));
 
-const listSelectData = (collections: VariableCollection[]) => {
+const listSelectData = (collections: (VariableCollection | Variable)[]) => {
   const data = collections.map(({ id, name }) => ({ id, name }));
 
   return sortByName(data);
 };
 
-const mapListById = (list) => {
-  const listMap: GenericType = {};
+const mapListById = (list: (BaseType & { id: string })[]) => {
+  const listMap: BaseType = {};
   list.map((listItem) => {
     listMap[listItem.id] = listItem;
   });
