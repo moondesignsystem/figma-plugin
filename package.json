@@ -11,8 +11,8 @@
     "build:code": "tsc -p tsconfig.json",
     "watch:code": "npm run build:code -- --watch",
     "clean:parcel": "rm -rf ./.parcel-cache",
-    "build:parcel": "npm run clean:parcel && parcel build ./plugin_ui/index.html --dist-dir dist/plugin_ui/",
-    "watch:parcel": "npm run build:parcel && parcel watch ./plugin_ui/index.html --dist-dir dist/plugin_ui/"
+    "build:parcel": "npm run clean:parcel && parcel build ./src/plugin_ui/index.html --dist-dir dist/src/plugin_ui/",
+    "watch:parcel": "npm run build:parcel && parcel watch ./src/plugin_ui/index.html --dist-dir dist/src/plugin_ui/"
   },
   "license": "MIT License",
   "devDependencies": {

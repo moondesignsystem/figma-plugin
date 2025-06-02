@@ -2,11 +2,11 @@
   "name": "Variable Management",
   "id": "1225498390710809905",
   "api": "1.0.0",
-  "main": "./dist/code.js",
+  "main": "./dist/src/plugin_code/code.js",
   "capabilities": [],
   "enableProposedApi": false,
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
-  "ui": "./dist/plugin_ui/index.html",
+  "ui": "./dist/src/plugin_ui/index.html",
   "permissions": ["teamlibrary"]
 }

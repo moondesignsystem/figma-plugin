@@ -11,143 +11,6 @@ figma.showUI(__html__, {
 type BaseType = Record<string, unknown>;
 type ImportedVariableAliasMap = Record<string, VariableAlias>;
 
-figma.ui.onmessage = async (event) => {
-  const { type, body } = event;
-
-  try {
-    if (type === "LOAD_LIBRARIES") {
-      const libraries = await loadLibraries();
-
-      const localVariableCollections = await getLocalVariableCollections();
-      const localVariableCollectionsData = localVariableCollections.map(
-        ({ id, name, variableIds }) => ({
-          id,
-          name,
-          variableIds,
-        })
-      );
-
-      const localCollectionsMap = mapListById(localVariableCollectionsData);
-
-      const libraryNames = getLibraryNames(libraries);
-
-      await figma.clientStorage.setAsync("libraries", libraries);
-      await figma.clientStorage.setAsync("libraryNames", libraryNames);
-      await figma.clientStorage.setAsync(
-        "localVariableCollections",
-        localVariableCollectionsData
-      );
-      await figma.clientStorage.setAsync(
-        "localCollectionsMap",
-        localCollectionsMap
-      );
-
-      figma.ui.postMessage({
-        type: "LIBRARIES",
-        libraryNames,
-        localVariableCollections: listSelectData(localVariableCollections),
-      });
-
-      return;
-    }
-
-    const libraries = await figma.clientStorage.getAsync("libraries");
-
-    const localVariableCollections = await figma.clientStorage.getAsync(
-      "localVariableCollections"
-    );
-
-    const localCollectionsMap = await figma.clientStorage.getAsync(
-      "localCollectionsMap"
-    );
-
-    if (type === "LOAD_LOCAL_COLLECTION_VARIABLES") {
-      const collectionId = body.collectionId;
-
-      const collectionVariables: (Variable | null)[] =
-        await getVariablesByLocalCollection(localCollectionsMap[collectionId]);
-
-      if (!collectionVariables) {
-        return;
-      }
-
-      const collectionVariablesData = collectionVariables
-        .filter((item) => item !== null)
-        .map(({ id, name, valuesByMode }) => ({
-          id,
-          name,
-          valuesByMode,
-        }));
-
-      const collectionVariablesMapById = mapListById(collectionVariablesData);
-      await figma.clientStorage.setAsync(
-        "collectionVariablesMapById",
-        collectionVariablesMapById
-      );
-      figma.ui.postMessage({
-        type: "COLLECTION_VARIABLES",
-        collectionVariables: listSelectData(collectionVariables as Variable[]),
-      });
-      return;
-    }
-    const { libraryName, importType, collectionId, variableId } = body;
-
-    const collectionsByLibraryName = getCollectionsByLibraryName(
-      libraries,
-      libraryName
-    );
-
-    const { importedVariablesAliases } =
-      await importVariableAliasesFromImportedCollections(
-        collectionsByLibraryName
-      );
-
-    if (importType === "byVariable") {
-      if (!variableId) {
-        return;
-      }
-
-      const variable = await figma.variables.getVariableByIdAsync(variableId);
-
-      await updateLocalVariable(variable as Variable, importedVariablesAliases);
-
-      figma.ui.postMessage({
-        type: "IMPORTED_OK",
-        message: "Variable imported successfully",
-      });
-
-      return;
-    }
-
-    if (importType === "byCollection") {
-      if (!collectionId) {
-        return;
-      }
-      await updateLocalCollection(
-        localCollectionsMap[collectionId],
-        importedVariablesAliases
-      );
-      figma.ui.postMessage({
-        type: "IMPORTED_OK",
-        message: "Collection imported successfully",
-      });
-      return;
-    }
-
-    await updateAllLocalCollections(
-      localVariableCollections,
-      importedVariablesAliases
-    );
-
-    figma.ui.postMessage({
-      type: "IMPORTED_OK",
-      message: "All collections imported successfully",
-    });
-  } catch (error) {
-    console.error("Error importing Library:", error);
-  }
-};
-
 // Helpers
 const loadLibraries = async () => {
   const libraryCollections =
@@ -329,4 +192,175 @@ const mapListById = (list: (BaseType & { id: string })[]) => {
   });
 
   return listMap;
+};
+
+(async () => {
+  const libraries = await loadLibraries();
+
+  const localVariableCollections = await getLocalVariableCollections();
+  const localVariableCollectionsData = localVariableCollections.map(
+    ({ id, name, variableIds }) => ({
+      id,
+      name,
+      variableIds,
+    })
+  );
+
+  const localCollectionsMap = mapListById(localVariableCollectionsData);
+
+  const libraryNames = getLibraryNames(libraries);
+
+  await figma.clientStorage.setAsync("libraries", libraries);
+  await figma.clientStorage.setAsync("libraryNames", libraryNames);
+  await figma.clientStorage.setAsync(
+    "localVariableCollections",
+    localVariableCollectionsData
+  );
+  await figma.clientStorage.setAsync(
+    "localCollectionsMap",
+    localCollectionsMap
+  );
+
+  figma.ui.postMessage({
+    type: "LIBRARIES",
+    libraryNames,
+    localVariableCollections: listSelectData(localVariableCollections),
+  });
+})();
+
+figma.ui.onmessage = async (event) => {
+  const { type, body } = event;
+
+  try {
+    // if (type === "LOAD_LIBRARIES") {
+    //   const libraries = await loadLibraries();
+
+    //   const localVariableCollections = await getLocalVariableCollections();
+    //   const localVariableCollectionsData = localVariableCollections.map(
+    //     ({ id, name, variableIds }) => ({
+    //       id,
+    //       name,
+    //       variableIds,
+    //     })
+    //   );
+
+    //   const localCollectionsMap = mapListById(localVariableCollectionsData);
+
+    //   const libraryNames = getLibraryNames(libraries);
+
+    //   await figma.clientStorage.setAsync("libraries", libraries);
+    //   await figma.clientStorage.setAsync("libraryNames", libraryNames);
+    //   await figma.clientStorage.setAsync(
+    //     "localVariableCollections",
+    //     localVariableCollectionsData
+    //   );
+    //   await figma.clientStorage.setAsync(
+    //     "localCollectionsMap",
+    //     localCollectionsMap
+    //   );
+
+    //   figma.ui.postMessage({
+    //     type: "LIBRARIES",
+    //     libraryNames,
+    //     localVariableCollections: listSelectData(localVariableCollections),
+    //   });
+
+    //   return;
+    // }
+
+    const libraries = await figma.clientStorage.getAsync("libraries");
+
+    const localVariableCollections = await figma.clientStorage.getAsync(
+      "localVariableCollections"
+    );
+
+    const localCollectionsMap = await figma.clientStorage.getAsync(
+      "localCollectionsMap"
+    );
+
+    if (type === "LOAD_LOCAL_COLLECTION_VARIABLES") {
+      const collectionId = body.collectionId;
+
+      const collectionVariables: (Variable | null)[] =
+        await getVariablesByLocalCollection(localCollectionsMap[collectionId]);
+
+      if (!collectionVariables) {
+        return;
+      }
+
+      const collectionVariablesData = collectionVariables
+        .filter((item) => item !== null)
+        .map(({ id, name, valuesByMode }) => ({
+          id,
+          name,
+          valuesByMode,
+        }));
+
+      const collectionVariablesMapById = mapListById(collectionVariablesData);
+      await figma.clientStorage.setAsync(
+        "collectionVariablesMapById",
+        collectionVariablesMapById
+      );
+      figma.ui.postMessage({
+        type: "COLLECTION_VARIABLES",
+        collectionVariables: listSelectData(collectionVariables as Variable[]),
+      });
+      return;
+    }
+    const { libraryName, importType, collectionId, variableId } = body;
+
+    const collectionsByLibraryName = getCollectionsByLibraryName(
+      libraries,
+      libraryName
+    );
+
+    const { importedVariablesAliases } =
+      await importVariableAliasesFromImportedCollections(
+        collectionsByLibraryName
+      );
+
+    if (importType === "byVariable") {
+      if (!variableId) {
+        return;
+      }
+
+      const variable = await figma.variables.getVariableByIdAsync(variableId);
+
+      await updateLocalVariable(variable as Variable, importedVariablesAliases);
+
+      figma.ui.postMessage({
+        type: "IMPORTED_OK",
+        message: "Variable imported successfully",
+      });
+
+      return;
+    }
+
+    if (importType === "byCollection") {
+      if (!collectionId) {
+        return;
+      }
+      await updateLocalCollection(
+        localCollectionsMap[collectionId],
+        importedVariablesAliases
+      );
+      figma.ui.postMessage({
+        type: "IMPORTED_OK",
+        message: "Collection imported successfully",
+      });
+      return;
+    }
+
+    await updateAllLocalCollections(
+      localVariableCollections,
+      importedVariablesAliases
+    );
+
+    figma.ui.postMessage({
+      type: "IMPORTED_OK",
+      message: "All collections imported successfully",
+    });
+  } catch (error) {
+    console.error("Error importing Library:", error);
+  }
 };

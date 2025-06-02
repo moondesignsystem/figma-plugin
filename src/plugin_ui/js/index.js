@@ -2,7 +2,6 @@
 
 let localCollections = [];
 const form = document.querySelector("form");
-const loadLibrariesBtn = document.getElementById("loadLibraries");
 const submitBtn = document.getElementById("submitButton");
 const librariesSelect = document.getElementById("selectLibrary");
 const byVariableElement = document.getElementById("byVariable");
@@ -19,12 +18,6 @@ form.addEventListener("submit", (e) => {
   loadingItem.className = "shown";
 
   disableSubmitButton();
-});
-
-loadLibrariesBtn.addEventListener("click", () => {
-  parent.postMessage({ pluginMessage: { type: "LOAD_LIBRARIES" } }, "*");
-  loadLibrariesBtn.innerHTML = "Loading...";
-  loadLibrariesBtn.setAttribute("disabled", true);
 });
 
 librariesSelect.addEventListener("change", () => {
@@ -80,8 +73,6 @@ window.onmessage = ({ data: { pluginMessage } }) => {
     populateLibrarySelect(libraryNames);
     populateCollectionsSelect(localCollections);
 
-    loadLibrariesBtn.innerHTML = "Load Enabled Libraries";
-    loadLibrariesBtn.removeAttribute("disabled");
     return;
   }
 
