@@ -232,42 +232,6 @@ figma.ui.onmessage = async (event) => {
   const { type, body } = event;
 
   try {
-    // if (type === "LOAD_LIBRARIES") {
-    //   const libraries = await loadLibraries();
-
-    //   const localVariableCollections = await getLocalVariableCollections();
-    //   const localVariableCollectionsData = localVariableCollections.map(
-    //     ({ id, name, variableIds }) => ({
-    //       id,
-    //       name,
-    //       variableIds,
-    //     })
-    //   );
-
-    //   const localCollectionsMap = mapListById(localVariableCollectionsData);
-
-    //   const libraryNames = getLibraryNames(libraries);
-
-    //   await figma.clientStorage.setAsync("libraries", libraries);
-    //   await figma.clientStorage.setAsync("libraryNames", libraryNames);
-    //   await figma.clientStorage.setAsync(
-    //     "localVariableCollections",
-    //     localVariableCollectionsData
-    //   );
-    //   await figma.clientStorage.setAsync(
-    //     "localCollectionsMap",
-    //     localCollectionsMap
-    //   );
-
-    //   figma.ui.postMessage({
-    //     type: "LIBRARIES",
-    //     libraryNames,
-    //     localVariableCollections: listSelectData(localVariableCollections),
-    //   });
-
-    //   return;
-    // }
-
     const libraries = await figma.clientStorage.getAsync("libraries");
 
     const localVariableCollections = await figma.clientStorage.getAsync(
