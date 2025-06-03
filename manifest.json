@@ -1,6 +1,6 @@
 {
   "name": "Variable Management",
-  "id": "1225498390710809905",
+  "id": "1511418798684061954",
   "api": "1.0.0",
   "main": "./dist/src/plugin_code/code.js",
   "capabilities": [],
@@ -8,5 +8,6 @@
   "editorType": ["figma"],
   "documentAccess": "dynamic-page",
   "ui": "./dist/src/plugin_ui/index.html",
-  "permissions": ["teamlibrary"]
+  "permissions": ["teamlibrary"],
+  "networkAccess": { "allowedDomains": ["none"] }
 }
