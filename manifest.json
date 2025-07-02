@@ -1,18 +1,13 @@
 {
-  "name": "moonds-variables",
-  "id": "1502229133602980472",
+  "name": "Variable Management",
+  "id": "1511418798684061954",
   "api": "1.0.0",
-  "main": "code.js",
+  "main": "./dist/src/plugin_code/code.js",
   "capabilities": [],
   "enableProposedApi": false,
+  "editorType": ["figma"],
   "documentAccess": "dynamic-page",
-  "editorType": [
-    "figma"
-  ],
-  "ui": "ui.html",
-  "networkAccess": {
-    "allowedDomains": [
-      "none"
-    ]
-  }
+  "ui": "./dist/src/plugin_ui/index.html",
+  "permissions": ["teamlibrary"],
+  "networkAccess": { "allowedDomains": ["none"] }
 }
