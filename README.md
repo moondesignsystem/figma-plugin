@@ -1,40 +1,109 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+# Figma Variable Management Plugin
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+A Figma plugin that remaps local design variables to variables imported from a team library. It is aimed at design-system work where a file still points at an old variable collection and needs to be migrated to a new library.
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+The plugin exposes a small UI for choosing the target library and the remap scope: a single variable, a single collection, or every local collection.
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+## Features
 
-  https://nodejs.org/en/download/
+- Lists variable collections available from team libraries.
+- Imports library variables and creates aliases for them.
+- Remaps local variables by single variable, single collection, or all collections.
+- Reports progress and errors in the plugin UI.
+- TypeScript plugin code with a Parcel-built HTML/CSS/JS UI.
+- No network access: everything runs inside Figma.
 
-Next, install TypeScript using the command:
+## Tech stack
 
-  npm install -g typescript
+| Layer | Technology |
+| --- | --- |
+| Platform | Figma Plugin API |
+| Language | TypeScript |
+| UI bundler | Parcel 2 |
+| Plugin build | TypeScript compiler (`tsc`) |
+| Linting | ESLint + Figma plugin rules |
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+## Project structure
 
-  npm install --save-dev @figma/plugin-typings
+```text
+figma-plugin/
+├── manifest.json              # Figma entry point (points at dist/)
+├── src/
+│   ├── plugin_code/code.ts    # Plugin sandbox: variable remapping logic
+│   └── plugin_ui/
+│       ├── index.html         # Plugin iframe markup
+│       ├── css/               # base.css, theme.css
+│       └── js/index.js        # UI logic and postMessage bridge
+├── tsconfig.json
+└── package.json
+```
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+## Getting started
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+### Requirements
 
-For more information, visit https://www.typescriptlang.org/
+- Node.js 18+ and npm.
+- Figma desktop or web with permission to use team libraries.
+- A Figma file containing local variables and at least one library with variables, for testing.
 
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
+### 1. Install dependencies
 
-We recommend writing TypeScript code using Visual Studio code:
+```bash
+npm install
+npm run build
+```
 
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "npm: watch". You will have to do this again every time
-    you reopen Visual Studio Code.
+### 2. Run locally
 
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+**Build and import into Figma**
+
+```bash
+npm run build
+```
+
+In Figma: Menu → Plugins → Development → Import plugin from manifest… and select `manifest.json`. Run it from Plugins → Development.
+
+**Development with rebuilds**
+
+```bash
+npm run watch:code
+```
+
+Run `npm run watch:parcel` in a second terminal, then re-run the plugin in Figma after each build.
+
+### Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run build` | Build both the plugin code and the Parcel UI. |
+| `npm run build:code` | Compile TypeScript plugin code to `dist/src/plugin_code/`. |
+| `npm run build:parcel` | Bundle the plugin UI into `dist/src/plugin_ui/`. |
+| `npm run watch:code` | Recompile plugin code on change. |
+| `npm run watch:parcel` | Rebuild the UI on change. |
+| `npm run lint` | Lint TypeScript sources. |
+| `npm run lint:fix` | Lint and fix TypeScript sources. |
+| `npm run clean:parcel` | Remove the Parcel cache. |
+
+## How it works
+
+`src/plugin_code/code.ts` runs in the Figma sandbox. It opens the iframe with `figma.showUI`, loads library collections, imports variables by key, creates aliases, and applies them to local variables.
+
+`src/plugin_ui/index.html` and `src/plugin_ui/js/index.js` run in the iframe. They collect the target library and scope, then exchange messages with the sandbox through `parent.postMessage` and `figma.ui.onmessage`.
+
+The manifest points at `dist/src/plugin_code/code.js` and `dist/src/plugin_ui/index.html`; `dist/` is gitignored and must be built before importing the plugin.
+
+## Deployment
+
+- Distribution is through Figma: publish to the Figma Community or share the plugin privately inside the organisation.
+- There is no server or GitHub Actions deployment. Build the `dist/` output and publish from Figma.
+- The manifest requests the `teamlibrary` permission and declares `networkAccess.allowedDomains: ["none"]`. Keep both restrictions unless the plugin genuinely needs more access.
+
+## Notes and limitations
+
+- The Figma plugin name in `manifest.json` is “Variable Management”; the package name is `moonds-variables`.
+- The plugin is intentionally destructive: it remaps variables. Test on a duplicate file before running it on a real design system.
+- `documentAccess` is `dynamic-page`, so the plugin works with dynamic-page documents.
+
+---
+
+**Author:** Mario Granada
